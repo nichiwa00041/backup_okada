@@ -1,0 +1,114 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.okadayosuke.myapplication.food_pop_pokari">
+
+    <TextView android:text="個" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView14"
+        android:layout_toStartOf="@+id/imageView14"
+        android:id="@+id/textView12" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:id="@+id/imageView14"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/pokari_hunmatu" />
+
+    <EditText
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:maxLength="2"
+        android:id="@+id/input_pokari"
+        android:layout_alignBottom="@+id/textView12"
+        android:layout_toStartOf="@+id/textView12" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="幼児"
+        android:id="@+id/textView75"
+        android:layout_alignBottom="@+id/imageView14"
+        android:layout_toEndOf="@+id/imageView14" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="人"
+        android:id="@+id/textView76"
+        android:layout_alignBottom="@+id/textView75"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="小人"
+        android:id="@+id/textView77"
+        android:layout_above="@+id/textView75"
+        android:layout_alignStart="@+id/textView75" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="人"
+        android:id="@+id/textView78"
+        android:layout_above="@+id/textView76"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="大人"
+        android:id="@+id/textView79"
+        android:layout_above="@+id/textView77"
+        android:layout_toEndOf="@+id/imageView14" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="人"
+        android:id="@+id/textView80"
+        android:layout_above="@+id/textView78"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XX"
+        android:id="@+id/pokari_adult"
+        android:layout_above="@+id/textView78"
+        android:layout_toStartOf="@+id/textView78" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XX"
+        android:id="@+id/pokari_kids"
+        android:layout_above="@+id/textView76"
+        android:layout_toStartOf="@+id/textView76" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XX"
+        android:id="@+id/pokari_baby"
+        android:layout_alignBottom="@+id/textView76"
+        android:layout_toStartOf="@+id/textView76" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="今日はXXXX年XX月XX日です"
+        android:id="@+id/date_pokari"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/input_pokari"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

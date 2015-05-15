@@ -1,0 +1,153 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.okadayosuke.myapplication.food">
+
+    <TextView android:text="食べ物" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/content_food"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="ホーム"
+        android:id="@+id/food_home"
+        android:layout_alignBaseline="@+id/food"
+        android:layout_alignBottom="@+id/food"
+        android:layout_toStartOf="@+id/popup_konamilk" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="非常食"
+        android:id="@+id/food"
+        android:layout_below="@+id/popup_mizu"
+        android:layout_toStartOf="@+id/popup_rinyu" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="設定"
+        android:id="@+id/food_setting"
+        android:layout_alignBaseline="@+id/food_stock"
+        android:layout_alignBottom="@+id/food_stock"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="備蓄品"
+        android:id="@+id/food_stock"
+        android:layout_below="@+id/popup_mizu"
+        android:layout_toStartOf="@+id/food_setting" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:id="@+id/popup_food_retorutogohan"
+        android:src="@drawable/retoruto_gohan"
+        android:layout_alignTop="@+id/popup_food_kanpan"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:id="@+id/popup_food_kandume"
+        android:src="@drawable/kandume"
+        android:layout_above="@+id/popup_food_retoruto"
+        android:layout_toEndOf="@+id/popup_food_retorutogohan" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:id="@+id/popup_food_kanmen"
+        android:src="@drawable/kanmen"
+        android:layout_alignTop="@+id/popup_food_kandume"
+        android:layout_toEndOf="@+id/popup_food_kandume" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:id="@+id/popup_food_kanpan"
+        android:src="@drawable/kanpan"
+        android:layout_below="@+id/content_food"
+        android:layout_toEndOf="@+id/popup_food_kanmen" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="86dp"
+        android:id="@+id/popup_food_retoruto"
+        android:src="@drawable/retoruto"
+        android:layout_alignTop="@+id/popup_food_kandume2"
+        android:layout_toEndOf="@+id/popup_food_retorutogohan" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="86dp"
+        android:id="@+id/popup_food_kandume2"
+        android:src="@drawable/kandume"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/popup_food_retorutogohan" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="86dp"
+        android:id="@+id/popup_food_furizzu"
+        android:src="@drawable/furizu_dorai"
+        android:layout_alignTop="@+id/popup_food_retoruto"
+        android:layout_toEndOf="@+id/popup_food_retoruto" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="水"
+        android:id="@+id/content_water"
+        android:layout_below="@+id/popup_okasi"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:id="@+id/popup_mizu"
+        android:src="@drawable/mizu"
+        android:layout_below="@+id/content_water"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:id="@+id/popup_karori"
+        android:src="@drawable/karori_meito"
+        android:layout_alignTop="@+id/popup_food_furizzu"
+        android:layout_toEndOf="@+id/popup_food_furizzu" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:id="@+id/popup_okasi"
+        android:src="@drawable/okasi"
+        android:layout_below="@+id/popup_food_retoruto"
+        android:layout_toStartOf="@+id/popup_food_retoruto" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:id="@+id/popup_konamilk"
+        android:src="@drawable/konamilk"
+        android:layout_below="@+id/popup_food_retoruto"
+        android:layout_toStartOf="@+id/popup_food_furizzu" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:id="@+id/popup_rinyu"
+        android:src="@drawable/rinyu"
+        android:layout_below="@+id/popup_food_retoruto"
+        android:layout_toEndOf="@+id/popup_food_retoruto" />
+
+</RelativeLayout>

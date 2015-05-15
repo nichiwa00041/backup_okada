@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.okadayosuke.myapplication.stock_pop_gunnte">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/gunnte"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/gunnte" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="個"
+        android:id="@+id/object"
+        android:layout_alignBottom="@+id/gunnte"
+        android:layout_toStartOf="@+id/gunnte" />
+
+    <EditText
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:maxLength="2"
+        android:id="@+id/input_gunnte"
+        android:layout_alignBottom="@+id/object"
+        android:layout_toStartOf="@+id/object" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="幼児"
+        android:id="@+id/textView105"
+        android:layout_alignBottom="@+id/gunnte"
+        android:layout_toEndOf="@+id/gunnte" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="人"
+        android:id="@+id/textView106"
+        android:layout_alignBottom="@+id/textView105"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="小人"
+        android:id="@+id/textView107"
+        android:layout_above="@+id/textView105"
+        android:layout_toEndOf="@+id/gunnte" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="人"
+        android:id="@+id/textView108"
+        android:layout_above="@+id/textView106"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="大人"
+        android:id="@+id/textView109"
+        android:layout_above="@+id/textView107"
+        android:layout_toEndOf="@+id/gunnte" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="人"
+        android:id="@+id/textView110"
+        android:layout_above="@+id/textView108"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XX"
+        android:id="@+id/gunte_adult"
+        android:layout_above="@+id/textView108"
+        android:layout_toStartOf="@+id/textView108" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XX"
+        android:id="@+id/gunte_kids"
+        android:layout_alignTop="@+id/textView108"
+        android:layout_toStartOf="@+id/textView106" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XX"
+        android:id="@+id/gunte_baby"
+        android:layout_alignBottom="@+id/textView105"
+        android:layout_toStartOf="@+id/textView106" />
+
+</RelativeLayout>

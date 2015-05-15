@@ -1,0 +1,276 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="今日はXXXX年XX月XX日です"
+        android:id="@+id/Date"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="ホーム"
+        android:id="@+id/home"
+        android:layout_below="@+id/limit_food12"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="非常食"
+        android:id="@+id/home_food"
+        android:layout_alignTop="@+id/home"
+        android:layout_toEndOf="@+id/home" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="設定"
+        android:id="@+id/home_setting"
+        android:layout_alignTop="@+id/home_stock"
+        android:layout_alignEnd="@+id/total_stock" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="備蓄品"
+        android:id="@+id/home_stock"
+        android:layout_alignTop="@+id/home_food"
+        android:layout_toStartOf="@+id/home_setting" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/graphLeft"
+        android:src="@drawable/graph_left_1"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView151" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/Graph_right_0"
+        android:src="@drawable/graph_right_0"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView14" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="非常食合計"
+        android:id="@+id/textView13"
+        android:layout_below="@+id/graphLeft"
+        android:layout_alignStart="@+id/textView151" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XX"
+        android:id="@+id/total_food"
+        android:layout_below="@+id/graphLeft"
+        android:layout_alignEnd="@+id/graphLeft" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XX"
+        android:id="@+id/total_stock"
+        android:layout_alignTop="@+id/total_food"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="備蓄品合計"
+        android:id="@+id/textView14"
+        android:layout_below="@+id/Graph_right_0"
+        android:layout_toEndOf="@+id/Date" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="％"
+        android:id="@+id/textView149"
+        android:layout_below="@+id/textView13"
+        android:layout_alignEnd="@+id/total_food" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX"
+        android:id="@+id/percent_food"
+        android:layout_alignBottom="@+id/textView149"
+        android:layout_toStartOf="@+id/textView149" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="備蓄率"
+        android:id="@+id/textView151"
+        android:layout_alignBottom="@+id/percent_food" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/aleat_food"
+        android:textColor="#ff0000"
+        android:layout_below="@+id/Date"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/limit_food1"
+        android:textSize="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/aleat_food"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/limit_food2"
+        android:textSize="12dp"
+        android:layout_below="@+id/limit_food1"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/limit_food3"
+        android:textSize="12dp"
+        android:layout_below="@+id/limit_food2"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/limit_food4"
+        android:textSize="12dp"
+        android:layout_below="@+id/limit_food3"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/limit_food5"
+        android:textSize="12dp"
+        android:layout_below="@+id/limit_food4"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/limit_food6"
+        android:textSize="12dp"
+        android:layout_below="@+id/limit_food5"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/limit_food7"
+        android:textSize="12dp"
+        android:layout_below="@+id/limit_food6"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/limit_food8"
+        android:textSize="12dp"
+        android:layout_below="@+id/limit_food7"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/limit_food9"
+        android:textSize="12dp"
+        android:layout_below="@+id/limit_food8"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/limit_food10"
+        android:textSize="12dp"
+        android:layout_below="@+id/limit_food9"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/limit_food11"
+        android:textSize="12dp"
+        android:layout_below="@+id/limit_food10"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/limit_food12"
+        android:textSize="12dp"
+        android:layout_below="@+id/limit_food11"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="最終更新日"
+        android:textSize="10dp"
+        android:id="@+id/textView"
+        android:layout_below="@+id/percent_food"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXXX年XX月XX日"
+        android:textSize="10dp"
+        android:id="@+id/last_food"
+        android:layout_below="@+id/textView149"
+        android:layout_alignEnd="@+id/textView149" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="備蓄不足の文章予定"
+        android:textColor="#ff0000"
+        android:id="@+id/textView150"
+        android:layout_below="@+id/aleat_food"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.okadayosuke.myapplication.stock">
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="ホーム"
+        android:id="@+id/stock_home"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="非常食"
+        android:id="@+id/stock_food"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/stock_home" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="設定"
+        android:id="@+id/stock_setting"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="備蓄品"
+        android:id="@+id/stock"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/stock_setting" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/popup_gas"
+        android:src="@drawable/gas"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/stock_food" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/popup_almi"
+        android:src="@drawable/almi"
+        android:layout_below="@+id/popup_gas"
+        android:layout_alignStart="@+id/popup_gas" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/popup_bombe"
+        android:src="@drawable/bombe"
+        android:layout_below="@+id/popup_almi"
+        android:layout_alignStart="@+id/popup_almi" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/popup_gunnte"
+        android:src="@drawable/gunnte"
+        android:layout_below="@+id/popup_bombe"
+        android:layout_alignStart="@+id/popup_bombe" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/popup_hue"
+        android:src="@drawable/hue"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/stock" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/popup_matti"
+        android:src="@drawable/matti"
+        android:layout_alignTop="@+id/popup_almi"
+        android:layout_alignStart="@+id/popup_hue" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/popup_sitagi"
+        android:src="@drawable/sitagi"
+        android:layout_above="@+id/popup_gunnte"
+        android:layout_alignStart="@+id/popup_matti" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/popup_thissyu"
+        android:src="@drawable/thissyu"
+        android:layout_alignTop="@+id/popup_gunnte"
+        android:layout_alignStart="@+id/popup_sitagi" />
+
+</RelativeLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.okadayosuke.myapplication" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".setting"
+            android:label="@string/title_activity_setting" >
+        </activity>
+        <activity
+            android:name=".food"
+            android:label="@string/title_activity_food" >
+        </activity>
+        <activity
+            android:name=".stock"
+            android:label="@string/title_activity_stock" >
+        </activity>
+        <activity
+            android:name=".stock_pop_gas"
+            android:label="@string/title_activity_stock_pop_gas" >
+        </activity>
+        <activity
+            android:name=".stock_pop_almi"
+            android:label="@string/title_activity_stock_pop_almi" >
+        </activity>
+        <activity
+            android:name=".stock_pop_bombe"
+            android:label="@string/title_activity_stock_pop_bombe" >
+        </activity>
+        <activity
+            android:name=".stock_pop_gunnte"
+            android:label="@string/title_activity_stock_pop_gunnte" >
+        </activity>
+        <activity
+            android:name=".stock_pop_hue"
+            android:label="@string/title_activity_stock_pop_hue" >
+        </activity>
+        <activity
+            android:name=".stock_pop_matti"
+            android:label="@string/title_activity_stock_pop_matti" >
+        </activity>
+        <activity
+            android:name=".stock_pop_sitagi"
+            android:label="@string/title_activity_stock_pop_sitagi" >
+        </activity>
+        <activity
+            android:name=".stock_pop_thissyu"
+            android:label="@string/title_activity_stock_pop_thissyu" >
+        </activity>
+        <activity
+            android:name=".food_pop_rerice"
+            android:label="@string/title_activity_food_pop_rerice" >
+        </activity>
+        <activity
+            android:name=".food_pop_kandume"
+            android:label="@string/title_activity_food_pop_kandume" >
+        </activity>
+        <activity
+            android:name=".food_pop_kanmen"
+            android:label="@string/title_activity_food_pop_kanmen" >
+        </activity>
+        <activity
+            android:name=".food_pop_kanpen"
+            android:label="@string/title_activity_food_pop_kanpen" >
+        </activity>
+        <activity
+            android:name=".food_pop_retoruto"
+            android:label="@string/title_activity_food_pop_retoruto" >
+        </activity>
+        <activity
+            android:name=".food_pop_kandume2"
+            android:label="@string/title_activity_food_pop_kandume2" >
+        </activity>
+        <activity
+            android:name=".food_pop_furizzu"
+            android:label="@string/title_activity_food_pop_furizzu" >
+        </activity>
+        <activity
+            android:name=".food_pop_dish_sonota"
+            android:label="@string/title_activity_food_pop_dish_sonota" >
+        </activity>
+        <activity
+            android:name=".food_pop_mizu"
+            android:label="@string/title_activity_food_pop_mizu" >
+        </activity>
+        <activity
+            android:name=".food_pop_pokari"
+            android:label="@string/title_activity_food_pop_pokari" >
+        </activity>
+        <activity
+            android:name=".food_pop_karori"
+            android:label="@string/title_activity_food_pop_karori" >
+        </activity>
+        <activity
+            android:name=".food_pop_okasi"
+            android:label="@string/title_activity_food_pop_okasi" >
+        </activity>
+        <activity
+            android:name=".calendar_rerice"
+            android:label="@string/title_activity_calendar_rerice" >
+        </activity>
+        <activity
+            android:name=".food_pop_konamilk"
+            android:label="@string/title_activity_food_pop_konamilk" >
+        </activity>
+        <activity
+            android:name=".food_pop_rinyu"
+            android:label="@string/title_activity_food_pop_rinyu" >
+        </activity>
+        <activity
+            android:name=".setting_pop_limit"
+            android:label="@string/title_activity_setting_pop_limit" >
+        </activity>
+        <activity
+            android:name=".setting_pop_setting"
+            android:label="@string/title_activity_setting_pop_setting" >
+        </activity>
+        <activity
+            android:name=".Main_pop_food_alert"
+            android:label="@string/title_activity_main_pop_food_alert" >
+        </activity>
+    </application>
+
+</manifest>

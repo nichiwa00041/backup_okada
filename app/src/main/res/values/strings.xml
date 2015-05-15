@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_setting">setting</string>
+    <string name="title_activity_food">food</string>
+    <string name="title_activity_stock">stock</string>
+    <string name="title_activity_stock_pop_gas">stock_pop_gas</string>
+    <string name="title_activity_stock_pop_almi">stock_pop_almi</string>
+    <string name="title_activity_stock_pop_bombe">stock_pop_bombe</string>
+    <string name="title_activity_stock_pop_gunnte">stock_pop_gunnte</string>
+    <string name="title_activity_stock_pop_hue">stock_pop_hue</string>
+    <string name="title_activity_stcok_pop_matti">stcok_pop_matti</string>
+    <string name="title_activity_stock_pop_matti">stock_pop_matti</string>
+    <string name="title_activity_stock_pop_sitagi">stock_pop_sitagi</string>
+    <string name="title_activity_stock_thissyu">stock_thissyu</string>
+    <string name="title_activity_stock_pop_thissyu">stock_pop_thissyu</string>
+    <string name="title_activity_food_popup__re_rice">food_popup_ReRice</string>
+    <string name="title_activity_food_pop_rerice">food_pop_rerice</string>
+    <string name="title_activity_food_pop_kandume">food_pop_kandume</string>
+    <string name="title_activity_food_pop_kanmen">food_pop_kanmen</string>
+    <string name="title_activity_food_pop_kanpen">food_pop_kanpen</string>
+    <string name="title_activity_food_pop_retoruto">food_pop_retoruto</string>
+    <string name="title_activity_food_pop_kandume2">food_pop_kandume2</string>
+    <string name="title_activity_food_pop_furizzu">food_pop_furizzu</string>
+    <string name="title_activity_food_pop_dish_sonota">food_pop_dish_sonota</string>
+    <string name="title_activity_food_pop_mizu">food_pop_mizu</string>
+    <string name="title_activity_food_pop_pokari">food_pop_pokari</string>
+    <string name="title_activity_food_pop_karori">food_pop_karori</string>
+    <string name="title_activity_food_pop_okasi">food_pop_okasi</string>
+    <string name="title_activity_calendar">calendar</string>
+    <string name="title_activity_calendar_rerice">calendar_rerice</string>
+    <string name="title_activity_food_pop_konamilk">food_pop_konamilk</string>
+    <string name="title_activity_food_pop_rinyu">food_pop_rinyu</string>
+    <string name="title_activity_setting_pop_limit">setting_pop_limit</string>
+    <string name="title_activity_setting_pop_setting">setting_pop_setting</string>
+    <string-array name="adult">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+    <string-array name="kids">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+    <string-array name="baby">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+    <string-array name="limit">
+        <item>14</item>
+        <item>30</item>
+        <item>60</item>
+    </string-array>
+    <string-array name="setting">
+        <item>1</item>
+        <item>3</item>
+        <item>7</item>
+    </string-array>
+    <string name="title_activity_main_pop_food_alert">Main_pop_food_alert</string>
+</resources>
