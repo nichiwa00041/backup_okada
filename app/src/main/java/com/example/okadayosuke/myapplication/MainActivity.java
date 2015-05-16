@@ -135,7 +135,6 @@ public class MainActivity extends Activity {
         SharedPreferences pref = getSharedPreferences("Preferences", MODE_PRIVATE);
         //  設定の合計人数
         int adult   = pref.getInt("key_adult", 0);
-//        int adult   = 1;
         int kids    = pref.getInt("key_kids", 0);
         int baby    = pref.getInt("key_baby", 0);
 
@@ -522,9 +521,9 @@ public class MainActivity extends Activity {
                 //  プリファレンスの作成S
                 SharedPreferences prefReRice = getSharedPreferences("Preferences", MODE_PRIVATE);
 
-                int rrYear = prefReRice.getInt("rrYear", 0);
-                int rrMonth = prefReRice.getInt("rrMonth", 0);
-                int rrDay = prefReRice.getInt("rrDay", 0);
+                int rrYear = prefReRice.getInt("rrYear",  cal.get(Calendar.YEAR));
+                int rrMonth = prefReRice.getInt("rrMonth",  cal.get(Calendar.MONTH));
+                int rrDay = prefReRice.getInt("rrDay",  cal.get(Calendar.DAY_OF_MONTH));
 
                 int i = 0;
                 i = prefReRice.getInt("key_ReRice", i);
@@ -683,9 +682,9 @@ public class MainActivity extends Activity {
                 //  プリファレンスの作成S
                 SharedPreferences prefKandume = getSharedPreferences("Preferences", MODE_PRIVATE);
 
-                int krYear = prefKandume.getInt("krYear", 0);
-                int krMonth = prefKandume.getInt("krMonth", 0);
-                int krDay = prefKandume.getInt("krDay", 0);
+                int krYear = prefKandume.getInt("krYear",  cal.get(Calendar.YEAR));
+                int krMonth = prefKandume.getInt("krMonth",  cal.get(Calendar.MONTH));
+                int krDay = prefKandume.getInt("krDay",  cal.get(Calendar.DAY_OF_MONTH));
 
                 int i = 0;
                 i = prefKandume.getInt("key_kandume", 0);
@@ -843,9 +842,9 @@ public class MainActivity extends Activity {
                 //  プリファレンスの作成S
                 SharedPreferences prefKanmen = getSharedPreferences("Preferences", MODE_PRIVATE);
 
-                int kmYear = prefKanmen.getInt("kmYear", 0);
-                int kmMonth = prefKanmen.getInt("kmMonth", 0);
-                int kmDay = prefKanmen.getInt("kmDay", 0);
+                int kmYear = prefKanmen.getInt("kmYear",  cal.get(Calendar.YEAR));
+                int kmMonth = prefKanmen.getInt("kmMonth",  cal.get(Calendar.MONTH));
+                int kmDay = prefKanmen.getInt("kmDay",  cal.get(Calendar.DAY_OF_MONTH));
 
 
                 int i = 0;
@@ -1006,9 +1005,9 @@ public class MainActivity extends Activity {
                 //  プリファレンスの作成S
                 SharedPreferences prefKanpan = getSharedPreferences("Preferences", MODE_PRIVATE);
 
-                int kpYear = prefKanpan.getInt("kpYear", 0);
-                int kpMonth = prefKanpan.getInt("kpMonth", 0);
-                int kpDay = prefKanpan.getInt("kpDay", 0);
+                int kpYear = prefKanpan.getInt("kpYear",  cal.get(Calendar.YEAR));
+                int kpMonth = prefKanpan.getInt("kpMonth",  cal.get(Calendar.MONTH));
+                int kpDay = prefKanpan.getInt("kpDay",  cal.get(Calendar.DAY_OF_MONTH));
 
 
                 int i = 0;
@@ -1172,9 +1171,9 @@ public class MainActivity extends Activity {
                 //  プリファレンスの作成S
                 SharedPreferences prefKandume2 = getSharedPreferences("Preferences", MODE_PRIVATE);
 
-                int kdYear = prefKandume2.getInt("kdYear", 0);
-                int kdMonth = prefKandume2.getInt("kdMonth", 0);
-                int kdDay = prefKandume2.getInt("kdDay", 0);
+                int kdYear = prefKandume2.getInt("kdYear",  cal.get(Calendar.YEAR));
+                int kdMonth = prefKandume2.getInt("kdMonth",  cal.get(Calendar.MONTH));
+                int kdDay = prefKandume2.getInt("kdDay",  cal.get(Calendar.DAY_OF_MONTH));
 
                 int i = 0;
                 i = prefKandume2.getInt("key_kandume2", i);
@@ -1333,9 +1332,9 @@ public class MainActivity extends Activity {
                 //  プリファレンスの作成S
                 SharedPreferences prefRetoruto = getSharedPreferences("Preferences", MODE_PRIVATE);
 
-                int reYear = prefRetoruto.getInt("reYear", 0);
-                int reMonth = prefRetoruto.getInt("reMonth", 0);
-                int reDay = prefRetoruto.getInt("reDay", 0);
+                int reYear = prefRetoruto.getInt("reYear",  cal.get(Calendar.YEAR));
+                int reMonth = prefRetoruto.getInt("reMonth",  cal.get(Calendar.MONTH));
+                int reDay = prefRetoruto.getInt("reDay",  cal.get(Calendar.DAY_OF_MONTH));
 
 
                 int i = 0;
@@ -1494,9 +1493,9 @@ public class MainActivity extends Activity {
                 //  プリファレンスの作成S
                 SharedPreferences prefFurizzu = getSharedPreferences("Preferences", MODE_PRIVATE);
 
-                int fYear = prefFurizzu.getInt("fYear", 0);
-                int fMonth = prefFurizzu.getInt("fMonth", 0);
-                int fDay = prefFurizzu.getInt("fDay", 0);
+                int fYear = prefFurizzu.getInt("fYear",  cal.get(Calendar.YEAR));
+                int fMonth = prefFurizzu.getInt("fMonth",  cal.get(Calendar.MONTH));
+                int fDay = prefFurizzu.getInt("fDay",  cal.get(Calendar.DAY_OF_MONTH));
 
                 int i = 0;
                 i = prefFurizzu.getInt("key_furizzu", 0);
@@ -1655,9 +1654,9 @@ public class MainActivity extends Activity {
                 //  プリファレンスの作成S
                 SharedPreferences prefKarori = getSharedPreferences("Preferences", MODE_PRIVATE);
 
-                int caYear = prefKarori.getInt("caYear", 0);
-                int caMonth = prefKarori.getInt("caMonth", 0);
-                int caDay = prefKarori.getInt("caDay", 0);
+                int caYear = prefKarori.getInt("caYear",  cal.get(Calendar.YEAR));
+                int caMonth = prefKarori.getInt("caMonth",  cal.get(Calendar.MONTH));
+                int caDay = prefKarori.getInt("caDay",  cal.get(Calendar.DAY_OF_MONTH));
 
                 int i = 0;
                 i = prefKarori.getInt("key_karori", 0);
@@ -1815,9 +1814,9 @@ public class MainActivity extends Activity {
                 //  プリファレンスの作成S
                 SharedPreferences prefOkasi = getSharedPreferences("Preferences", MODE_PRIVATE);
 
-                int cnYear = prefOkasi.getInt("cnYear", 0);
-                int cnMonth = prefOkasi.getInt("cnMonth", 0);
-                int cnDay = prefOkasi.getInt("cnDay", 0);
+                int cnYear = prefOkasi.getInt("cnYear",  cal.get(Calendar.YEAR));
+                int cnMonth = prefOkasi.getInt("cnMonth",  cal.get(Calendar.MONTH));
+                int cnDay = prefOkasi.getInt("cnDay",  cal.get(Calendar.DAY_OF_MONTH));
 
                 int i = 0;
                 i = prefOkasi.getInt("key_okasi", 0);
@@ -1974,9 +1973,9 @@ public class MainActivity extends Activity {
                 //  プリファレンスの作成S
                 SharedPreferences prefKona = getSharedPreferences("Preferences", MODE_PRIVATE);
 
-                int pmYear = prefKona.getInt("pmYear", 0);
-                int pmMonth = prefKona.getInt("pmMonth", 0);
-                int pmDay = prefKona.getInt("pmDay", 0);
+                int pmYear = prefKona.getInt("pmYear",  cal.get(Calendar.YEAR));
+                int pmMonth = prefKona.getInt("pmMonth",  cal.get(Calendar.MONTH));
+                int pmDay = prefKona.getInt("pmDay",  cal.get(Calendar.DAY_OF_MONTH));
 
                 int i = 0;
                 i = prefKona.getInt("key_konamilk", 0);
@@ -2133,9 +2132,9 @@ public class MainActivity extends Activity {
                 //  プリファレンスの作成S
                 SharedPreferences prefRinyu = getSharedPreferences("Preferences", MODE_PRIVATE);
 
-                int bfYear = prefRinyu.getInt("bfYear", 0);
-                int bfMonth = prefRinyu.getInt("bfMonth", 0);
-                int bfDay = prefRinyu.getInt("bfDay", 0);
+                int bfYear = prefRinyu.getInt("bfYear",  cal.get(Calendar.YEAR));
+                int bfMonth = prefRinyu.getInt("bfMonth",  cal.get(Calendar.MONTH));
+                int bfDay = prefRinyu.getInt("bfDay",  cal.get(Calendar.DAY_OF_MONTH));
 
                 int i = 0;
                 i = prefRinyu.getInt("key_rinyu", i);
@@ -2292,9 +2291,9 @@ public class MainActivity extends Activity {
                 //  プリファレンスの作成S
                 SharedPreferences prefMisu = getSharedPreferences("Preferences", MODE_PRIVATE);
 
-                int miYear = prefMisu.getInt("miYear", 0);
-                int miMonth = prefMisu.getInt("miMonth", 0);
-                int miDay = prefMisu.getInt("miDay", 0);
+                int miYear = prefMisu.getInt("miYear",  cal.get(Calendar.YEAR));
+                int miMonth = prefMisu.getInt("miMonth",  cal.get(Calendar.MONTH));
+                int miDay = prefMisu.getInt("miDay",  cal.get(Calendar.DAY_OF_MONTH));
 
                 int i = 0;
                 i = prefMisu.getInt("key_mizu", 0);
