@@ -135,6 +135,7 @@ public class MainActivity extends Activity {
         SharedPreferences pref = getSharedPreferences("Preferences", MODE_PRIVATE);
         //  設定の合計人数
         int adult   = pref.getInt("key_adult", 0);
+//        int adult   = 1;
         int kids    = pref.getInt("key_kids", 0);
         int baby    = pref.getInt("key_baby", 0);
 
@@ -233,135 +234,133 @@ public class MainActivity extends Activity {
         /**********************************************************************************/
 
         //
-        int rrYear = pref.getInt("rrYear", 0);
-        int rrMonth = pref.getInt("rrMonth", 0);
-        int rrDay = pref.getInt("rrDay", 0);
+        int rrYear = pref.getInt("rrYear", cal.get(Calendar.YEAR));
+        int rrMonth = pref.getInt("rrMonth", cal.get(Calendar.MONTH));
+        int rrDay = pref.getInt("rrDay", cal.get(Calendar.DAY_OF_MONTH));
 
-        int krYear = pref.getInt("krYear", 0);
-        int krMonth = pref.getInt("krMonth", 0);
-        int krDay = pref.getInt("krDay", 0);
+        int krYear = pref.getInt("krYear", cal.get(Calendar.YEAR));
+        int krMonth = pref.getInt("krMonth", cal.get(Calendar.MONTH));
+        int krDay = pref.getInt("krDay", cal.get(Calendar.DAY_OF_MONTH));
 
-        int kmYear = pref.getInt("kmYear", 0);
-        int kmMonth = pref.getInt("kmMonth", 0);
-        int kmDay = pref.getInt("kmDay", 0);
+        int kmYear = pref.getInt("kmYear", cal.get(Calendar.YEAR));
+        int kmMonth = pref.getInt("kmMonth", cal.get(Calendar.MONTH));
+        int kmDay = pref.getInt("kmDay", cal.get(Calendar.DAY_OF_MONTH));
 
-        int kpYear = pref.getInt("kpYear", 0);
-        int kpMonth = pref.getInt("kpMonth", 0);
-        int kpDay = pref.getInt("kpDay", 0);
+        int kpYear = pref.getInt("kpYear", cal.get(Calendar.YEAR));
+        int kpMonth = pref.getInt("kpMonth", cal.get(Calendar.MONTH));
+        int kpDay = pref.getInt("kpDay", cal.get(Calendar.DAY_OF_MONTH));
 
-        int kdYear = pref.getInt("kdYear", 0);
-        int kdMonth = pref.getInt("kdMonth", 0);
-        int kdDay = pref.getInt("kdDay", 0);
+        int kdYear = pref.getInt("kdYear", cal.get(Calendar.YEAR));
+        int kdMonth = pref.getInt("kdMonth", cal.get(Calendar.MONTH));
+        int kdDay = pref.getInt("kdDay", cal.get(Calendar.DAY_OF_MONTH));
 
-        int fYear = pref.getInt("fYear", 0);
-        int fMonth = pref.getInt("fMonth", 0);
-        int fDay = pref.getInt("fDay", 0);
+        int fYear = pref.getInt("fYear", cal.get(Calendar.YEAR));
+        int fMonth = pref.getInt("fMonth", cal.get(Calendar.MONTH));
+        int fDay = pref.getInt("fDay", cal.get(Calendar.DAY_OF_MONTH));
 
-        int reYear = pref.getInt("reYear", 0);
-        int reMonth = pref.getInt("reMonth", 0);
-        int reDay = pref.getInt("reDay", 0);
+        int reYear = pref.getInt("reYear", cal.get(Calendar.YEAR));
+        int reMonth = pref.getInt("reMonth", cal.get(Calendar.MONTH));
+        int reDay = pref.getInt("reDay", cal.get(Calendar.DAY_OF_MONTH));
 
-        int miYear = pref.getInt("miYear", 0);
-        int miMonth = pref.getInt("miMonth", 0);
-        int miDay = pref.getInt("miDay", 0);
+        int miYear = pref.getInt("miYear", cal.get(Calendar.YEAR));
+        int miMonth = pref.getInt("miMonth", cal.get(Calendar.MONTH));
+        int miDay = pref.getInt("miDay", cal.get(Calendar.DAY_OF_MONTH));
 
-        int cnYear = pref.getInt("cnYear", 0);
-        int cnMonth = pref.getInt("cnMonth", 0);
-        int cnDay = pref.getInt("cnDay", 0);
+        int cnYear = pref.getInt("cnYear", cal.get(Calendar.YEAR));
+        int cnMonth = pref.getInt("cnMonth", cal.get(Calendar.MONTH));
+        int cnDay = pref.getInt("cnDay", cal.get(Calendar.DAY_OF_MONTH));
 
-        int caYear = pref.getInt("caYear", 0);
-        int caMonth = pref.getInt("caMonth", 0);
-        int caDay = pref.getInt("caDay", 0);
+        int caYear = pref.getInt("caYear", cal.get(Calendar.YEAR));
+        int caMonth = pref.getInt("caMonth", cal.get(Calendar.MONTH));
+        int caDay = pref.getInt("caDay", cal.get(Calendar.DAY_OF_MONTH));
 
-        int pmYear = pref.getInt("pmYear", 0);
-        int pmMonth = pref.getInt("pmMonth", 0);
-        int pmDay = pref.getInt("pmDay", 0);
+        int pmYear = pref.getInt("pmYear", cal.get(Calendar.YEAR));
+        int pmMonth = pref.getInt("pmMonth", cal.get(Calendar.MONTH));
+        int pmDay = pref.getInt("pmDay", cal.get(Calendar.DAY_OF_MONTH));
 
-        int bfYear = pref.getInt("bfYear", 0);
-        int bfMonth = pref.getInt("bfMonth", 0);
-        int bfDay = pref.getInt("bfDay", 0);
+        int bfYear = pref.getInt("bfYear", cal.get(Calendar.YEAR));
+        int bfMonth = pref.getInt("bfMonth", cal.get(Calendar.MONTH));
+        int bfDay = pref.getInt("bfDay", cal.get(Calendar.DAY_OF_MONTH));
 
         //  消費期限の表示。
         int lReRice = DeadlineFood(rrYear, rrMonth, rrDay);
-        TextDeadline("レトルトごはん", lReRice, R.id.limit_food1, limit);
+        TextDeadline("レトルトごはん", ReRice,lReRice, R.id.limit_food1, limit);
         if( lReRice < 0 ){
             ReRice = 0;
         }
 
-//        DeadlineFood("缶詰（ご飯）", krYear, krMonth, krDay, limit, R.id.limit_food2);
 
         int lKandume = DeadlineFood(krYear, krMonth, krDay);
-        TextDeadline("缶詰（ご飯）", lKandume, R.id.limit_food2, limit);
+        TextDeadline("缶詰（ご飯）", kandume, lKandume, R.id.limit_food2, limit);
         if( lKandume < 0 ){
              kandume = 0;
         }
 
 
-//        DeadlineFood("乾麺", kmYear, kmMonth, kmDay, limit, R.id.limit_food3);
         int lKanmen = DeadlineFood(kmYear, kmMonth, kmDay);
-        TextDeadline("乾麺", lKanmen, R.id.limit_food3, limit);
+        TextDeadline("乾麺", kanmen,lKanmen, R.id.limit_food3, limit);
         if( lKanmen < 0 ){
             kanmen = 0;
         }
-//        DeadlineFood("乾パン", kpYear, kpMonth, kpDay, limit, R.id.limit_food4);
+
         int lKanpan = DeadlineFood(kpYear, kpMonth, kpDay);
-        TextDeadline("乾パン", lKanpan, R.id.limit_food4, limit);
+        TextDeadline("乾パン", kanpan, lKanpan, R.id.limit_food4, limit);
         if( lKanpan < 0 ){
             kanpan = 0;
         }
 
-//        DeadlineFood("缶詰（魚・肉）", kdYear, kdMonth, kdDay, limit, R.id.limit_food5);
+
         int lKandume2 = DeadlineFood(kdYear, kdMonth, kdDay);
-        TextDeadline("缶詰（魚・肉）", lKandume2, R.id.limit_food5, limit);
+        TextDeadline("缶詰（魚・肉）", kandume2, lKandume2, R.id.limit_food5, limit);
         if( lKandume2 < 0 ){
             kandume2 = 0;
         }
 
-//        DeadlineFood("レトルト食品", reYear, reMonth, reDay, limit, R.id.limit_food6);
+
         int lRetoruto = DeadlineFood(reYear, reMonth, reDay);
-        TextDeadline("レトルト食品", lRetoruto, R.id.limit_food6, limit);
+        TextDeadline("レトルト食品", retoruto,lRetoruto, R.id.limit_food6, limit);
         if( lRetoruto < 0 ){
             retoruto = 0;
         }
 
-//        DeadlineFood("フリーズドライ", fYear, fMonth, fDay, limit, R.id.limit_food7);
+
         int lFurizzu = DeadlineFood(fYear, fMonth, fDay);
-        TextDeadline("フリーズドライ", lFurizzu, R.id.limit_food7, limit);
+        TextDeadline("フリーズドライ", furizzu, lFurizzu, R.id.limit_food7, limit);
         if( lFurizzu < 0 ){
             furizzu = 0;
         }
 
 //        DeadlineFood("カロリーメイト", caYear, caMonth, caDay, limit, R.id.limit_food8);
         int lKarori = DeadlineFood(caYear, caMonth, caDay);
-        TextDeadline("カロリーメイト", lKarori, R.id.limit_food8, limit);
+        TextDeadline("カロリーメイト", karori, lKarori, R.id.limit_food8, limit);
         if( lKarori < 0 ){
             karori = 0;
         }
 
 //        DeadlineFood("菓子類", cnYear, cnMonth, cnDay, limit, R.id.limit_food9);
         int lOkasi = DeadlineFood(cnYear, cnMonth, cnDay);
-        TextDeadline("菓子類", lOkasi, R.id.limit_food9, limit);
+        TextDeadline("菓子類", okasi, lOkasi, R.id.limit_food9, limit);
         if( lOkasi < 0 ){
             okasi = 0;
         }
 
 //        DeadlineFood("粉ミルク", pmYear, pmMonth, pmDay, limit, R.id.limit_food10);
         int lKona = DeadlineFood(pmYear, pmMonth, pmDay);
-        TextDeadline("粉ミルク", lKona, R.id.limit_food10, limit);
+        TextDeadline("粉ミルク", kona, lKona, R.id.limit_food10, limit);
         if( lKona < 0 ){
             kona = 0;
         }
 
 //        DeadlineFood("離乳食", bfYear, bfMonth, bfDay, limit, R.id.limit_food11);
         int lRinyu = DeadlineFood(bfYear, bfMonth, bfDay);
-        TextDeadline("離乳食", lRinyu, R.id.limit_food11, limit);
+        TextDeadline("離乳食", rinyu, lRinyu, R.id.limit_food11, limit);
         if( lRinyu < 0 ){
             rinyu = 0;
         }
 
 //        DeadlineFood("水", miYear, miMonth, miDay, limit, R.id.limit_food12);
         int lMizu = DeadlineFood(miYear, miMonth, miDay);
-        TextDeadline("水", lMizu, R.id.limit_food12, limit);
+        TextDeadline("水", mizu, lMizu, R.id.limit_food12, limit);
         if( lMizu < 0 ){
             mizu = 0;
         }
@@ -391,31 +390,42 @@ public class MainActivity extends Activity {
         //  大人と小人に関係する食品の合計値（離乳食と粉ミルクを除いたポイント）
         float   okAll = fAll - fBaby;
 
+        float     totalHuman = adult + kids + baby;
+        float     moleOverKids;
+        if( ((adult + kids ) > 0)) {
+            moleOverKids = totalHuman - baby;
+        } else {
+            moleOverKids = 0;
+        }
+
+        float     moleBaby;
+        moleBaby = totalHuman - moleOverKids;
+
         //  有効な食品のポイントからの割合の変数。
-        float rateOverKids;
-        float rateBaby;
-        float div = 2.0f;
-
-        if( adult > 0 || kids > 0) {    //  大人または小人が1人でもいる場合
-            rateOverKids = CalRateForOverKids(okAll, adult, kids, setting);
-        } else {                        //  いない場合。ないと思うが。
-            rateOverKids = 0.0f;
-            div -= 1.0f;
-        }
-        if( baby > 0 ) {                //  幼児がいる場合
-            rateBaby = CalRateForBaby(fBaby, baby, setting);
-        } else {                        //  いない場合。
-            rateBaby = 0.0f;
-            div -= 1.0f;
+        float rateFoods;
+        float rateFinalOverKids;
+        if((adult+kids) > 0) {
+            rateFoods = getRateFoods(okAll, adult, kids, setting);
+            rateFinalOverKids = rateFoods * ( moleOverKids / totalHuman );
+        } else {
+            rateFinalOverKids = 0.0f;
+            rateFoods = 0.0f;
         }
 
-        //  割合を足し合わせて、平均。
-        float rateFood;
-        if( !( div == 0.0f ) ) {    //  訳：設定人数が1人でもいた場合。
-            rateFood = (rateOverKids + rateBaby) / div;
-        } else {                    //  訳：設定人数が全て0人の場合。
-            rateFood = 0.0f;
+        float rateBaby = fBaby / ( baby * setting );
+        if(rateBaby >= 1.0f){
+            rateBaby = 1.0f;
         }
+
+        float rateFinalBaby;
+        if(baby > 0) {
+            rateFinalBaby = rateBaby * (moleBaby / totalHuman);
+        } else {
+            rateFinalBaby = 0.0f;
+        }
+        //  最後の割合調整。水との比較のため、50％に。
+        float rateFinalFood = (rateFinalOverKids + rateFinalBaby) * 0.5f;
+
 
         /**********************************************************************************/
 
@@ -423,19 +433,19 @@ public class MainActivity extends Activity {
         //  注意点：大人は3ポイント。小人、幼児は2ポイント、必要になる。
         //  水のポイント自体は1つにつき3ポイント、小人以下は2ポイント
         //  要するに、一人一日分。人種に応じて必要合計値を出して分母にすればいい。
-        float   tMizu = mizu;
+        float   tWater = mizu;
 
-        float   rateMizu = CalRateWater(tMizu, adult, kids, baby, setting);
+        float   rateWater = getRateWater(tWater, adult, kids, baby, setting);
 
         //  小数点をなくす処理。小数点は切り捨て。
-        float   rateFoodGraph = ( ( rateFood + rateMizu ));                 //  0.0f～1.0f
-        int     rateFoodTotal = (int)( ( rateFood + rateMizu ) * 100 );     //  0～100（％）
+        float   rateFoodGraph = ( ( rateFinalFood + rateWater ));                 //  0.0f～1.0f
+        int     rateFoodTotal = (int)( ( rateFinalFood + rateWater ) * 100 );     //  0～100（％）
 
         /**********************************************************************************/
 
         //  デバッグの表示
-//        TextView debug = (TextView)findViewById(R.id.debug);
-//        debug.setText("" + rateFood + "、" + rateMizu + "、" + rateFoodTotal);
+        TextView debug = (TextView)findViewById(R.id.debug);
+        debug.setText("" + rateFinalFood + "、" + rateWater + "、" + rateFoodTotal);
 
 
         TextView fAlert = (TextView) findViewById(R.id.aleat_food);
@@ -455,11 +465,11 @@ public class MainActivity extends Activity {
 
         //  非常食のパーセント表示。
         TextView strRateFood = (TextView)findViewById(R.id.percent_food);
-        strRateFood.setText(""+ Math.floor(rateFoodTotal));
+        strRateFood.setText(""+ (int)(Math.floor(rateFoodTotal)));
 
         /**********************************************************************************/
 
-        //  グラフ図の変化（左のみ）機能はしている。
+        //  グラフ図の変化（左のみ）機能はしている。d
         ImageView   graphLeft = (ImageView)findViewById(R.id.graphLeft);
 
         if(rateFoodGraph < ( 1 / GRAPH_DENO_FOOD ) ){
@@ -2518,10 +2528,13 @@ public class MainActivity extends Activity {
         return (deadline - today);
     }
 
-    public void TextDeadline(String name, int lastdays, int id, int limit){
+    public void TextDeadline(String name,int food, int lastdays, int id, int limit){
         TextView txt = (TextView)findViewById(id);
 
-        if( lastdays == 0 ) {
+        if( food <= 0 ) {
+            //  表示しない
+            txt.setText("");
+        } else if ( lastdays == 0 ){
             txt.setText( name +"の消費期限当日です");
         } else if ( lastdays < 0 ) {
             txt.setText( name + "の消費期限が" + ( lastdays * (-1) ) + "日間過ぎています");
@@ -2557,55 +2570,51 @@ public class MainActivity extends Activity {
     }
 
     //  割合の計算式、備蓄兼用で使用できる。
-    public float CalRateForOverKids(float food, int adult, int kids, int set){
+//    rateOverKids = CalRateForOverKids(okAll, fBaby, adult, kids, baby, setting);
+    public float getRateFoods(float food, float adult, float kids, float set) {
+        //  設定の人数の合計値。
+        float totalHuman = adult + kids;
+        if(totalHuman == 0){
+            return 0.0f;
+        }
+
+        //*****************************************************************************************/
+        //  大人と小人関係の変数準備S
+        //*****************************************************************************************/
+
         //  大人の必要ポイントを算出
-        float nfAdult = adult * 3;
+        float nAdult = adult * 3.0f;
 
         //  小人の必要ポイントを算出
-        float nfKids = kids * 2;
+        float nKids = kids * 2.0f;
 
-        //  大人と小人の合計必要ポイント。
-        float nfOverKids = nfAdult + nfKids;
+        //  大人と小人のポイントを算出。
+        float tNOverKids = nAdult + nKids;
 
-        //  備蓄の割合。大小人の合計値 ÷ 大小人の合計ポイント × 設定日数。
-        float rateOverKids = food / ( nfOverKids * (float)set );
+        //*****************************************************************************************/
+        //  割合計算。大人と小人S
+        //  （大小食料ポイント ÷ ｛必要ポイント × 設定日数｝） ×（大小人数 ÷ 全人数）
+        //*****************************************************************************************/
+        float rateOverKids;
+        rateOverKids = food / ( tNOverKids * set );
 
-        //  更に、幼児との割合のため値を半分に。
-        rateOverKids *= 0.5f;
-
-        //  割合が0.5以上であれば、0.5にしてリターン
-        if( rateOverKids >= 0.5f){
-            rateOverKids = 0.5f;
-            return rateOverKids;
-        } else {
-            return rateOverKids;
+        if(rateOverKids >= 1.0f){
+            rateOverKids = 1.0f;
         }
+
+        return rateOverKids;
     }
 
-    public float CalRateForBaby(float food, int baby, int set){
-
-        float nfBaby = baby * 3;
-
-        float rateBaby = food / ( nfBaby * set );
-
-        rateBaby *= 0.5f;
-
-        if(rateBaby >= 0.5f){
-            rateBaby = 0.5f;
-            return rateBaby;
-        } else {
-            return rateBaby;
-        }
-    }
-
-    public float CalRateWater(float water, int adult, int kids, int baby, int set){
+    //
+    public float getRateWater(float water, int adult, int kids, int baby, int set){
         float rateWater;
-        float needTotal;
+        int needTotal;
 
         needTotal = ( (( adult * 3 ) + ( kids * 2 ) + ( baby * 2 )) * set );
 
-        rateWater = water / needTotal;
+        rateWater = water / (float)needTotal;
 
+        //  食料との比較のため、半減。
         rateWater *= 0.5f;
 
         if( rateWater >= 0.5f ){
