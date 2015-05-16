@@ -441,11 +441,16 @@ public class MainActivity extends Activity {
         float   rateFoodGraph = ( ( rateFinalFood + rateWater ));                 //  0.0f～1.0f
         int     rateFoodTotal = (int)( ( rateFinalFood + rateWater ) * 100 );     //  0～100（％）
 
+        if( totalHuman == 0){
+            rateFoodGraph = 0.0f;
+            rateFoodTotal = 0;
+        }
+
         /**********************************************************************************/
 
         //  デバッグの表示
-        TextView debug = (TextView)findViewById(R.id.debug);
-        debug.setText("" + rateFinalFood + "、" + rateWater + "、" + rateFoodTotal);
+//        TextView debug = (TextView)findViewById(R.id.debug);
+//        debug.setText("" + rateFinalFood + "、" + rateWater + "、" + rateFoodTotal);
 
 
         TextView fAlert = (TextView) findViewById(R.id.aleat_food);
