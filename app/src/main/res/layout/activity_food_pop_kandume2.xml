@@ -6,7 +6,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.okadayosuke.myapplication.food_pop_kandume2">
 
-    <TextView android:text="食" android:layout_width="wrap_content"
+    <TextView android:text="缶" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView10"
         android:layout_toStartOf="@+id/imageView10"
@@ -18,7 +18,7 @@
         android:id="@+id/imageView10"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/kandume" />
+        android:src="@drawable/kandume2" />
 
     <EditText
         android:layout_width="32dp"
@@ -33,42 +33,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="幼児"
-        android:id="@+id/textView39"
-        android:layout_alignBottom="@+id/imageView10"
-        android:layout_toEndOf="@+id/imageView10" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="人"
-        android:id="@+id/textView40"
-        android:layout_alignBottom="@+id/textView39"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="小人"
         android:id="@+id/textView41"
-        android:layout_above="@+id/textView39"
-        android:layout_alignStart="@+id/textView39" />
+        android:layout_below="@+id/textView43"
+        android:layout_alignStart="@+id/textView43" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="人"
         android:id="@+id/textView42"
-        android:layout_above="@+id/textView40"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/imageView10" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="大人"
         android:id="@+id/textView43"
-        android:layout_above="@+id/textView41"
-        android:layout_toEndOf="@+id/imageView10" />
+        android:layout_alignTop="@+id/kandume2_adult"
+        android:layout_toStartOf="@+id/kandume2_adult" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,16 +75,8 @@
         android:layout_height="wrap_content"
         android:text="XX"
         android:id="@+id/kandume2_kids"
-        android:layout_above="@+id/textView40"
-        android:layout_toStartOf="@+id/textView40" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/kandume2_baby"
-        android:layout_alignBottom="@+id/textView40"
-        android:layout_toStartOf="@+id/textView40" />
+        android:layout_above="@+id/calendar_kandume2"
+        android:layout_toStartOf="@+id/textView42" />
 
     <TextView
         android:layout_width="wrap_content"

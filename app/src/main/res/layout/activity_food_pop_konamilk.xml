@@ -54,8 +54,8 @@
         android:layout_height="wrap_content"
         android:text="幼児"
         android:id="@+id/textView137"
-        android:layout_above="@+id/date_konamilk"
-        android:layout_toEndOf="@+id/imageView17" />
+        android:layout_alignTop="@+id/textView136"
+        android:layout_toStartOf="@+id/konamilk_baby" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -68,57 +68,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="小人"
-        android:id="@+id/textView139"
-        android:layout_above="@+id/textView137"
-        android:layout_toEndOf="@+id/imageView17" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="大人"
-        android:id="@+id/textView140"
-        android:layout_above="@+id/textView139"
-        android:layout_toEndOf="@+id/imageView17" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="人"
-        android:id="@+id/textView141"
-        android:layout_above="@+id/textView138"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="人"
-        android:id="@+id/textView142"
-        android:layout_alignTop="@+id/textView140"
-        android:layout_alignEnd="@+id/textView141" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="XX"
         android:id="@+id/konamilk_baby"
         android:layout_alignTop="@+id/textView138"
         android:layout_toStartOf="@+id/textView138" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/konamilk_kids"
-        android:layout_alignBottom="@+id/textView141"
-        android:layout_toStartOf="@+id/textView141" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/konamilk_adult"
-        android:layout_above="@+id/textView141"
-        android:layout_toStartOf="@+id/textView142" />
 
 </RelativeLayout>

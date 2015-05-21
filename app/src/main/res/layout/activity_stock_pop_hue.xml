@@ -35,42 +35,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="幼児"
-        android:id="@+id/textView111"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="人"
-        android:id="@+id/textView112"
-        android:layout_alignBottom="@+id/textView111"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="小人"
-        android:id="@+id/textView113"
-        android:layout_above="@+id/textView111"
-        android:layout_toEndOf="@+id/imageView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="人"
-        android:id="@+id/textView114"
-        android:layout_above="@+id/textView112"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="大人"
         android:id="@+id/textView115"
-        android:layout_above="@+id/textView113"
-        android:layout_toEndOf="@+id/imageView" />
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_alignBottom="@+id/imageView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -87,21 +55,5 @@
         android:id="@+id/hue_adult"
         android:layout_alignTop="@+id/textView116"
         android:layout_toStartOf="@+id/textView116" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/hue_kids"
-        android:layout_above="@+id/textView111"
-        android:layout_toStartOf="@+id/textView112" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/hue_baby"
-        android:layout_alignBottom="@+id/textView111"
-        android:layout_toStartOf="@+id/textView112" />
 
 </RelativeLayout>

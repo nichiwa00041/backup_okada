@@ -20,8 +20,14 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
-public class MainActivity extends Activity {
+class SampleClass{
+    String  name;
+    int     food;
+    int     lastDay;
+    int     id;
+};
 
+public class MainActivity extends Activity {
     //  レトルトごはんのカレンダーデータ
     final Calendar rrCal = Calendar.getInstance();
 
@@ -124,8 +130,10 @@ public class MainActivity extends Activity {
     public static final int NEED_WATER_KIDS = 2;
     public static final int NEED_FOOD_BABY = 3;
     public static final int NEED_WATER_BABY = 2;
+    public static final int MAX_FOODS_CATEGORY = 12;
     public static final float GRAPH_DENO_FOOD = 12.0f;
     public static final float GRAPH_DENO_STOCK = 12.0f;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,8 +146,6 @@ public class MainActivity extends Activity {
         int kids    = pref.getInt("key_kids", 0);
         int baby    = pref.getInt("key_baby", 0);
 
-
-
         //  期日のデータを取得、デフォルトは「14」日
         int limit = pref.getInt("key_limit", 14);
 
@@ -147,22 +153,22 @@ public class MainActivity extends Activity {
         int setting = pref.getInt("key_setting", 3);
 
 
-        TextView tw = (TextView)findViewById(R.id.Date);
+//        TextView tw = (TextView)findViewById(R.id.Date);
         final Calendar cal = Calendar.getInstance();
-
+/*
         tw.setText("今日は"
                    +  cal.get(Calendar.YEAR) + "年"
                    + (cal.get(Calendar.MONTH)+1) + "月"
                    +  cal.get(Calendar.DATE) + "日です");
-
-        Button btnHome = (Button)findViewById(R.id.home_setting);
-        btnHome.setOnClickListener(new View.OnClickListener() {
+*/
+        Button btnSetting = (Button)findViewById(R.id.home_setting);
+        btnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentHome = new Intent();
-                intentHome.setClassName("com.example.okadayosuke.myapplication", "com.example.okadayosuke.myapplication.setting");
+                Intent intentSetting = new Intent();
+                intentSetting.setClassName("com.example.okadayosuke.myapplication", "com.example.okadayosuke.myapplication.setting");
 
-                startActivity(intentHome);
+                startActivity(intentSetting);
             }
         });
 
@@ -185,6 +191,28 @@ public class MainActivity extends Activity {
                 intentFood.setClassName("com.example.okadayosuke.myapplication", "com.example.okadayosuke.myapplication.food");
 
                 startActivity(intentFood);
+            }
+        });
+
+        ImageView btnMetarFood = (ImageView)findViewById(R.id.graphLeft);
+        btnMetarFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClassName("com.example.okadayosuke.myapplication", "com.example.okadayosuke.myapplication.food");
+
+                startActivity(intent);
+            }
+        });
+
+        TextView btnAlertFood = (TextView)findViewById(R.id.aleat_food);
+        btnAlertFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClassName("com.example.okadayosuke.myapplication", "com.example.okadayosuke.myapplication.food");
+
+                startActivity(intent);
             }
         });
 
@@ -232,7 +260,7 @@ public class MainActivity extends Activity {
 
         /**********************************************************************************/
 
-        //
+        //消費期限のデータ（日数）取得
         int rrYear = pref.getInt("rrYear", cal.get(Calendar.YEAR));
         int rrMonth = pref.getInt("rrMonth", cal.get(Calendar.MONTH));
         int rrDay = pref.getInt("rrDay", cal.get(Calendar.DAY_OF_MONTH));
@@ -368,15 +396,8 @@ public class MainActivity extends Activity {
         int tFood = ReRice + kandume + kanmen + kanpan
                 + kandume2 + retoruto + furizzu + kona
                 + mizu + rinyu + karori + okasi;
-        //
-        String strFood = String.valueOf(tFood);
-
-        TextView food = (TextView)findViewById(R.id.total_food);
-        food.setText(strFood);
-
         //  非常食の合計値E
         //
-
         /**********************************************************************************/
 
         //  備蓄食品の総ポイント。
@@ -389,41 +410,31 @@ public class MainActivity extends Activity {
         //  大人と小人に関係する食品の合計値（離乳食と粉ミルクを除いたポイント）
         float   okAll = fAll - fBaby;
 
-        float     totalHuman = adult + kids + baby;
-        float     moleOverKids;
-        if( ((adult + kids ) > 0)) {
-            moleOverKids = totalHuman - baby;
-        } else {
-            moleOverKids = 0;
-        }
-
-        float     moleBaby;
-        moleBaby = totalHuman - moleOverKids;
-
         //  有効な食品のポイントからの割合の変数。
-        float rateFoods;
-        float rateFinalOverKids;
-        if((adult+kids) > 0) {
-            rateFoods = getRateFoods(okAll, adult, kids, setting);
-            rateFinalOverKids = rateFoods * ( moleOverKids / totalHuman );
-        } else {
-            rateFinalOverKids = 0.0f;
-            rateFoods = 0.0f;
+        float rateOverKids;
+        float rateBaby;
+        float div = 2.0f;
+
+        if( adult > 0 || kids > 0) {    //  大人または小人が1人でもいる場合
+            rateOverKids = getRateFoods(okAll, adult, kids, setting);
+        } else {                        //  いない場合。ないと思うが。
+            rateOverKids = 0.0f;
+            div -= 1.0f;
+        }
+        if( baby > 0 ) {                //  幼児がいる場合
+            rateBaby = CalRateForBaby(fBaby, baby, setting);
+        } else {                        //  いない場合。
+            rateBaby = 0.0f;
+            div -= 1.0f;
+        }
+        //  割合を足し合わせて、平均。
+        float rateFood;
+        if( !( div == 0.0f ) ) {    //  訳：設定人数が1人でもいた場合。
+            rateFood = (rateOverKids + rateBaby) / div;
+        } else {                    //  訳：設定人数が全て0人の場合。
+            rateFood = 0.0f;
         }
 
-        float rateBaby = fBaby / ( baby * setting );
-        if(rateBaby >= 1.0f){
-            rateBaby = 1.0f;
-        }
-
-        float rateFinalBaby;
-        if(baby > 0) {
-            rateFinalBaby = rateBaby * (moleBaby / totalHuman);
-        } else {
-            rateFinalBaby = 0.0f;
-        }
-        //  最後の割合調整。水との比較のため、50％に。
-        float rateFinalFood = (rateFinalOverKids + rateFinalBaby) * 0.5f;
 
 
         /**********************************************************************************/
@@ -437,26 +448,207 @@ public class MainActivity extends Activity {
         float   rateWater = getRateWater(tWater, adult, kids, baby, setting);
 
         //  小数点をなくす処理。小数点は切り捨て。
-        float   rateFoodGraph = ( ( rateFinalFood + rateWater ));                 //  0.0f～1.0f
-        int     rateFoodTotal = (int)( ( rateFinalFood + rateWater ) * 100 );     //  0～100（％）
+        float   rateFoodGraph = ( ( rateFood + rateWater ));                 //  0.0f～1.0f
+        int     rateFoodTotal = (int)( ( rateFood + rateWater ) * 100 );     //  0～100（％）
 
-        if( totalHuman == 0){
+        if( (adult + kids + baby) == 0 ){
             rateFoodGraph = 0.0f;
             rateFoodTotal = 0;
         }
 
         /**********************************************************************************/
+        //  備蓄品の計算S
 
+        /**********************************************************************************/
+
+        float gas = 0;
+        gas = pref.getFloat("key_gas", gas);
+
+        float almi = 0;
+        almi = pref.getFloat("key_almi", almi);
+
+        float bombe = 0;
+        bombe = pref.getFloat("key_bombe", bombe);
+
+        float gunte = 0;
+        gunte = pref.getFloat("key_gunte", gunte);
+
+        float hue = 0;
+        hue = pref.getFloat("key_hue", hue);
+
+        float matti = 0;
+        matti = pref.getFloat("key_matti", matti);
+
+        float thisshu = 0;
+        thisshu = pref.getFloat("key_thissyu", thisshu);
+
+        float sitagi = 0;
+        sitagi = pref.getFloat("key_sitagi", sitagi);
+
+        float kodomositagi = 0;
+        kodomositagi = pref.getFloat("key_kodomositagi", kodomositagi);
+
+        float kaichuudento = 0;
+        kaichuudento = pref.getFloat("key_kaichuudenntou", kaichuudento);
+
+        float koppu = 0;
+        koppu = pref.getFloat("key_koppu", koppu);
+
+        float utuwa = 0;
+        utuwa = pref.getFloat("key_utuwa", utuwa);
+
+        float taoru = 0;
+        taoru = pref.getFloat("key_taoru", taoru);
+
+        float rappu = 0;
+        rappu = pref.getFloat("key_rappu", rappu);
+
+        float hukuro = 0;
+        hukuro = pref.getFloat("key_hukuro", hukuro);
+
+        float spoon = 0;
+        spoon = pref.getFloat("key_spoon", spoon);
+
+        float hasi = 0;
+        hasi = pref.getFloat("key_hasi", hasi);
+
+        float denti = 0;
+        denti = pref.getFloat("key_denti", denti);
+
+        float radio = 0;
+        radio = pref.getFloat("key_radio", radio);
+
+        float kankiri = 0;
+        kankiri = pref.getFloat("key_kankiri", kankiri);
+
+        float masuku = 0;
+        masuku = pref.getFloat("key_masuku", masuku);
+
+        float juudennki = 0;
+        juudennki = pref.getFloat("key_juudennki", juudennki);
+
+        float nebukuro = 0;
+        nebukuro = pref.getFloat("key_nebukuro", nebukuro);
+
+        float bin  = 0;
+        bin = pref.getFloat("key_bin", bin);
+
+        float omutu = 0;
+        omutu = pref.getFloat("key_omutu", omutu);
+
+        //  ストックの合計数
+        float tStock = gas + almi + bombe + gunte
+                + hue + matti + sitagi + thisshu
+                + kodomositagi + kaichuudento + koppu
+                + utuwa + taoru + rappu + hukuro
+                + spoon + hasi + denti + radio
+                + kankiri + masuku + juudennki + nebukuro
+                + bin + omutu;
+
+        float rateAll = 0.0f;
+
+        rateAll += UsedFamilyStock( almi, setting, 1.0f, 1.0f, 2.0f);
+        rateAll += UsedFamilyStock( rappu, setting, 1.0f, 1.0f, 3.0f);
+        rateAll += UsedFamilyStock( bombe, setting, 1.0f, 2.0f, 5.0f);
+        rateAll += UsedFamilyStock( gas, setting, 1.0f, 1.0f, 1.0f);
+        rateAll += UsedFamilyStock( thisshu, setting, 1.0f, 1.0f, 3.0f);
+        rateAll += UsedFamilyStock( hukuro, setting, 1.0f, 1.0f, 1.0f);
+        rateAll += UsedFamilyStock( spoon, setting, 1.0f, 1.0f, 1.0f);
+        rateAll += UsedFamilyStock( hasi, setting, 1.0f, 1.0f, 1.0f);
+        rateAll += UsedFamilyStock( denti, setting, 2.0f, 2.0f, 4.0f);
+
+
+/*
+        //  大人の所持備蓄数（必需品）
+        float nessAdultStock = gas + almi + bombe
+                + sitagi + thisshu + kodomositagi + kaichuudento + koppu
+                + utuwa + taoru + rappu + hukuro
+                + spoon + hasi + (denti*2);
+
+        //  幼児の所持備蓄数（必需品）
+        float nessBabyStock = bin + omutu;
+
+
+        float usesAdultStock = gunte + hue + matti + radio
+                             + kankiri + masuku + juudennki;
+
+/**********************************************************************************/
+//  必需品
+/**********************************************************************************/
+/*
+        //　大人
+        float nessNeedStock1 = 0;
+        if( (adult+kids) > 0 ) {
+            nessNeedStock1 = GetNeedAdultStocks(adult, kids, setting);
+        } else {
+            nessNeedStock1 = 0.0f;
+        }
+
+        //  幼児のみ
+        float nessNeedStock2 = 0;
+        if(baby > 0) {
+            nessNeedStock2 = GetNeedBabyStocks(baby, setting);
+        } else {
+            nessNeedStock2 = 0.0f;
+        }
+
+        //  団体。合計人数が1以上の場合は固定。
+        float nessNeedStock3 = 0;
+        if((adult+kids+baby) > 0) {
+            nessNeedStock3 = GetNeedStocksOrg(setting);
+        } else {
+            nessNeedStock3 = 0.0f;
+        }
+
+        //  必需品の最後の割合の計算。
+        float rateNessStock = 0.0f;
+        if((adult+kids+baby) > 0) {
+            rateNessStock = GetRateStocks(nessAdultStock, nessBabyStock, nessNeedStock1, nessNeedStock2, nessNeedStock3, adult, kids, baby);
+        } else {
+            rateNessStock = 0.0f;
+        }
+/**********************************************************************************/
+//  便利品
+/**********************************************************************************/
+        //
+
+
+
+/**********************************************************************************/
+//
+/**********************************************************************************/
+
+/*
+        //  小数点をなくす処理。小数点は切り捨て。
+        float   rateFoodGraph = ( ( rateFood + rateWater ));                 //  0.0f～1.0f
+        int     rateFoodTotal = (int)( ( rateFood + rateWater ) * 100 );     //  0～100（％）
+
+        if( (adult + kids + baby) == 0 ){
+            rateFoodGraph = 0.0f;
+            rateFoodTotal = 0;
+        }
+*/
         //  デバッグの表示
 //        TextView debug = (TextView)findViewById(R.id.debug);
 //        debug.setText("" + rateFinalFood + "、" + rateWater + "、" + rateFoodTotal);
 
+        /*  要チェックアラート　*/
+        TextView txt1 = (TextView)findViewById(R.id.textView300);
+        txt1.setText("");
 
-        TextView fAlert = (TextView) findViewById(R.id.aleat_food);
+        TextView txtFoodAlert = (TextView) findViewById(R.id.aleat_food);
+        TextView txtFoodBaby = (TextView) findViewById(R.id.alert_baby);
+
         if(rateFoodTotal < 60) {
-            fAlert.setText("注意！ 非常食の備蓄率が少なくなっています");
+            txtFoodAlert.setText("注意！ 非常食の備蓄率が少なくなっています");
         } else {
-            fAlert.setText("");
+            txtFoodAlert.setText("");
+        }
+
+        if( baby > 0 && ( (kona + rinyu ) <= 0)){
+            txtFoodBaby.setText("粉ミルクと離乳食が備蓄されていません");
+        } else {
+            txtFoodBaby.setText("");
         }
         //  最終日更新のデータ
         final int lastYear = pref.getInt("last_year", cal.get(Calendar.YEAR));
@@ -469,7 +661,7 @@ public class MainActivity extends Activity {
 
         //  非常食のパーセント表示。
         TextView strRateFood = (TextView)findViewById(R.id.percent_food);
-        strRateFood.setText(""+ (int)(Math.floor(rateFoodTotal)));
+        strRateFood.setText(""+ rateFoodTotal);
 
         /**********************************************************************************/
 
@@ -504,8 +696,14 @@ public class MainActivity extends Activity {
             graphLeft.setImageResource(R.drawable.graph12);
         }
 
+        /**********************************************************************************/
+        //
+        /**********************************************************************************/
+
+
 
         /**********************************************************************************/
+        //　これより下、ダイアログ
         /**********************************************************************************/
 
         TextView txtfood1 = (TextView)findViewById(R.id.limit_food1);
@@ -534,26 +732,19 @@ public class MainActivity extends Activity {
                 int kids = 0;
                 kids = prefReRice.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefReRice.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vReRice.findViewById(R.id.input_ReRice);
                 TextView tAdult = (TextView)vReRice.findViewById(R.id.rerice_adult);
                 TextView tKids = (TextView)vReRice.findViewById(R.id.rerice_kids);
-                TextView tBaby = (TextView)vReRice.findViewById(R.id.rerice_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
-
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -695,25 +886,19 @@ public class MainActivity extends Activity {
                 int kids = 0;
                 kids = prefKandume.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefKandume.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vKandume.findViewById(R.id.input_kandume);
                 TextView tAdult = (TextView)vKandume.findViewById(R.id.kandume_adult);
                 TextView tKids = (TextView)vKandume.findViewById(R.id.kandume_kids);
-                TextView tBaby = (TextView)vKandume.findViewById(R.id.kandume_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -856,27 +1041,19 @@ public class MainActivity extends Activity {
                 int kids = 0;
                 kids = prefKanmen.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefKanmen.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
-
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vKanmen.findViewById(R.id.input_kanmen);
                 TextView tAdult = (TextView)vKanmen.findViewById(R.id.kanmen_adult);
                 TextView tKids = (TextView)vKanmen.findViewById(R.id.kanmen_kids);
-                TextView tBaby = (TextView)vKanmen.findViewById(R.id.kanmen_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
-
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -1019,25 +1196,19 @@ public class MainActivity extends Activity {
                 int kids = 0;
                 kids = prefKanpan.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefKanpan.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vKanpan.findViewById(R.id.input_kanpan);
                 TextView tAdult = (TextView)vKanpan.findViewById(R.id.kanpan_adult);
                 TextView tKids = (TextView)vKanpan.findViewById(R.id.kanpan_kids);
-                TextView tBaby = (TextView)vKanpan.findViewById(R.id.kanpan_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -1184,25 +1355,19 @@ public class MainActivity extends Activity {
                 int kids = 0;
                 kids = prefKandume2.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefKandume2.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vKandume2.findViewById(R.id.input_kandume2);
                 TextView tAdult = (TextView)vKandume2.findViewById(R.id.kandume2_adult);
                 TextView tKids = (TextView)vKandume2.findViewById(R.id.kandume2_kids);
-                TextView tBaby = (TextView)vKandume2.findViewById(R.id.kandume2_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -1346,25 +1511,19 @@ public class MainActivity extends Activity {
                 int kids = 0;
                 kids = prefRetoruto.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefRetoruto.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vRetoruto.findViewById(R.id.input_retoruto);
                 TextView tAdult = (TextView)vRetoruto.findViewById(R.id.retoruto_adult);
                 TextView tKids = (TextView)vRetoruto.findViewById(R.id.retoruto_kids);
-                TextView tBaby = (TextView)vRetoruto.findViewById(R.id.retoruto_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -1506,25 +1665,19 @@ public class MainActivity extends Activity {
                 int kids = 0;
                 kids = prefFurizzu.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefFurizzu.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vFurizzu.findViewById(R.id.input_furizzu);
                 TextView tAdult = (TextView)vFurizzu.findViewById(R.id.furizzu_adult);
                 TextView tKids = (TextView)vFurizzu.findViewById(R.id.furizzu_kids);
-                TextView tBaby = (TextView)vFurizzu.findViewById(R.id.furizzu_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -1667,25 +1820,19 @@ public class MainActivity extends Activity {
                 int kids = 0;
                 kids = prefKarori.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefKarori.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vKarori.findViewById(R.id.input_karori);
                 TextView tAdult = (TextView)vKarori.findViewById(R.id.karori_adult);
                 TextView tKids = (TextView)vKarori.findViewById(R.id.karori_kids);
-                TextView tBaby = (TextView)vKarori.findViewById(R.id.karori_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -1827,25 +1974,19 @@ public class MainActivity extends Activity {
                 int kids = 0;
                 kids = prefOkasi.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefOkasi.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vOkasi.findViewById(R.id.input_okasi);
                 TextView tAdult = (TextView)vOkasi.findViewById(R.id.okasi_adult);
                 TextView tKids = (TextView)vOkasi.findViewById(R.id.okasi_kids);
-                TextView tBaby = (TextView)vOkasi.findViewById(R.id.okasi_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -1980,30 +2121,18 @@ public class MainActivity extends Activity {
                 int i = 0;
                 i = prefKona.getInt("key_konamilk", 0);
 
-                int adult = 0;
-                adult = prefKona.getInt("key_adult", adult);
-
-                int kids = 0;
-                kids = prefKona.getInt("key_kids", kids);
-
                 int baby = 0;
                 baby = prefKona.getInt("key_baby", baby);
 
                 String str = String.valueOf(i);
-                String strAdult = String.valueOf(adult);
-                String strKids = String.valueOf(kids);
                 String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vKona.findViewById(R.id.input_konamilk);
-                TextView tAdult = (TextView)vKona.findViewById(R.id.konamilk_adult);
-                TextView tKids = (TextView)vKona.findViewById(R.id.konamilk_kids);
                 TextView tBaby = (TextView)vKona.findViewById(R.id.konamilk_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
-                tAdult.setText(strAdult);
-                tKids.setText(strKids);
                 tBaby.setText(strBaby);
 
                 //  プリファレンス
@@ -2139,30 +2268,18 @@ public class MainActivity extends Activity {
                 int i = 0;
                 i = prefRinyu.getInt("key_rinyu", i);
 
-                int adult = 0;
-                adult = prefRinyu.getInt("key_adult", adult);
-
-                int kids = 0;
-                kids = prefRinyu.getInt("key_kids", kids);
-
                 int baby = 0;
                 baby = prefRinyu.getInt("key_baby", baby);
 
                 String str = String.valueOf(i);
-                String strAdult = String.valueOf(adult);
-                String strKids = String.valueOf(kids);
                 String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vRinyu.findViewById(R.id.input_rinyu);
-                TextView tAdult = (TextView)vRinyu.findViewById(R.id.rinyu_adult);
-                TextView tKids = (TextView)vRinyu.findViewById(R.id.rinyu_kids);
                 TextView tBaby = (TextView)vRinyu.findViewById(R.id.rinyu_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
-                tAdult.setText(strAdult);
-                tKids.setText(strKids);
                 tBaby.setText(strBaby);
 
                 //  プリファレンス
@@ -2434,55 +2551,359 @@ public class MainActivity extends Activity {
 
             }
         });
+/*************************************************************************************************/
+//  バブルソート処理。S
+//  クラスはここで初利用。遅すぎた。
+/*************************************************************************************************/
+        SampleClass[] sc = new SampleClass[MAX_FOODS_CATEGORY];
+
+        for(int i = 0; i < MAX_FOODS_CATEGORY; ++i) {
+            sc[i] = new SampleClass();
+        }
+
+        Initialize(sc[0],sc[1],sc[2],sc[3],sc[4],sc[5],sc[6],sc[7],sc[8],sc[9],sc[10],sc[11]);
+
+//        sc[0].name = "レトルトご飯";
+
+        sc[0].lastDay = lReRice;
+        sc[1].lastDay = lKandume;
+        sc[2].lastDay = lKanmen;
+        sc[3].lastDay = lKanpan;
+        sc[4].lastDay = lKandume2;
+        sc[5].lastDay = lRetoruto;
+        sc[6].lastDay = lFurizzu;
+        sc[7].lastDay = lKarori;
+        sc[8].lastDay = lOkasi;
+        sc[9].lastDay = lKona;
+        sc[10].lastDay = lRinyu;
+        sc[11].lastDay = lMizu;
 
 
+//        TextView txt1 = (TextView)findViewById(R.id.textView300);
+  //      txt1.setText(""+sc[0].data);
+/*
+        TextView txt2 = (TextView)findViewById(R.id.textView301);
+        txt2.setText(""+lKandume);
 
-        /**********************************************************************************/
-        /**********************************************************************************/
+        TextView txt3 = (TextView)findViewById(R.id.textView302);
+        txt3.setText(""+lKanmen);
 
-
-
-        //
-        //  備蓄品の合計値S
-
-        int gas = 0;
-        gas = pref.getInt("key_gas", gas);
-
-        int almi = 0;
-        almi = pref.getInt("key_almi", almi);
-
-        int bombe = 0;
-        bombe = pref.getInt("key_bombe", bombe);
-
-        int gunte = 0;
-        gunte = pref.getInt("key_gunte", gunte);
-
-        int hue = 0;
-        hue = pref.getInt("key_hue", hue);
-
-        int matti = 0;
-        matti = pref.getInt("key_matti", matti);
-
-        int sitagi = 0;
-        sitagi = pref.getInt("key_sitagi", sitagi);
-
-        int thisshu = 0;
-        thisshu = pref.getInt("key_thissyu", thisshu);
-
-        int tStock = gas + almi + bombe + gunte
-                   + hue + matti + sitagi + thisshu;
-
-        String strStock = String.valueOf(tStock);
-
-        TextView stock = (TextView)findViewById(R.id.total_stock);
-        stock.setText(strStock);
+        TextView txt4 = (TextView)findViewById(R.id.textView303);
+        txt4.setText(""+lKanpan);
+*/
+        func5(sc[0],sc[1],sc[2],sc[3],sc[4],sc[5],sc[6],sc[7],sc[8],sc[9],sc[10],sc[11],limit);
 
 
-        //  備蓄品の合計値E
-        //
+/*
+        func1();
+        int i = func3(4);
+        TextView t = (TextView)findViewById(R.id.alert_baby);
+        t.setText(""+i);
+*/
+/*************************************************************************************************/
+//  バブルソート処理。E
+/*************************************************************************************************/
+    }
+    public void func5(SampleClass x0,SampleClass x1,SampleClass x2,SampleClass x3,
+                             SampleClass x4,SampleClass x5,SampleClass x6,SampleClass x7,
+                             SampleClass x8,SampleClass x9,SampleClass x10,SampleClass x11,
+                             int limit){
+
+        SampleClass[] array = new SampleClass[MAX_FOODS_CATEGORY];
+//        int[] finalArray;
+
+        for(int i = 0; i < MAX_FOODS_CATEGORY; ++i) {
+            array[i] = new SampleClass();
+        }
+
+//        array = new int[12];
+//        finalArray = new int[12];
+/*
+        for(int i = 0; i < 12; ++i){
+            finalArray[0] = 0;
+        }
+*/
+
+        array[0]  = x0;
+        array[1]  = x1;
+        array[2]  = x2;
+        array[3]  = x3;
+        array[4]  = x4;
+        array[5]  = x5;
+        array[6]  = x6;
+        array[7]  = x7;
+        array[8]  = x8;
+        array[9]  = x9;
+        array[10] = x10;
+        array[11] = x11;
+
+        for(int i = 0; i < MAX_FOODS_CATEGORY-1 ; ++i){
+            for(int j = MAX_FOODS_CATEGORY-1; j > i ; --j){
+                if(array[j].lastDay < array[j-1].lastDay){
+//                    if(array[j].food <= 0) {
+                        String n = array[j].name;
+                        int t = array[j].lastDay;
+
+                        array[j].name = array[j - 1].name;
+                        array[j].lastDay = array[j - 1].lastDay;
+
+                        array[j - 1].name = n;
+                        array[j - 1].lastDay = t;
+//                    }
+                }
+            }
+        }
+/*
+        TextDeadline(array[0].name, array[0].food, array[0].lastDay,R.id.limit_food1, limit);
+        TextDeadline(array[1].name, array[1].food, array[1].lastDay,R.id.limit_food2, limit);
+        TextDeadline(array[2].name, array[2].food, array[2].lastDay,R.id.limit_food3, limit);
+        TextDeadline(array[3].name, array[3].food, array[3].lastDay,R.id.limit_food4, limit);
+        TextDeadline(array[4].name, array[4].food, array[4].lastDay,R.id.limit_food5, limit);
+        TextDeadline(array[5].name, array[5].food, array[5].lastDay,R.id.limit_food6, limit);
+        TextDeadline(array[6].name, array[6].food, array[6].lastDay,R.id.limit_food7, limit);
+        TextDeadline(array[7].name, array[7].food, array[7].lastDay,R.id.limit_food8, limit);
+        TextDeadline(array[8].name, array[8].food, array[8].lastDay,R.id.limit_food9, limit);
+        TextDeadline(array[9].name, array[9].food, array[9].lastDay,R.id.limit_food10, limit);
+        TextDeadline(array[10].name, array[10].food, array[10].lastDay,R.id.limit_food11, limit);
+        TextDeadline(array[11].name, array[11].food, array[11].lastDay,R.id.limit_food12, limit);
+/*
+        TextView txt1 = (TextView)findViewById(R.id.textView300);
+        txt1.setText(x0.name+""+ x0.lastDay);
+*/
+/*
+        TextView txt2 = (TextView)findViewById(R.id.textView301);
+        txt2.setText(x1.name+""+ x1.lastDay);
+
+        TextView txt3 = (TextView)findViewById(R.id.textView302);
+        txt3.setText(x2.name+""+ x2.lastDay);
+
+        TextView txt4 = (TextView)findViewById(R.id.textView303);
+        txt4.setText(x3.name+""+ x3.lastDay);
+*/
+    }
+    //  関数
+    public float UsedFamilyStock(float stock, int set, float x, float y, float z){
+        float rate = 0.0f;
+        switch (set){
+            case 1:
+                rate = stock / x;
+                break;
+
+            case 3:
+                rate = stock / y;
+                break;
+
+            case 7:
+                rate = stock / z;
+                break;
+        }
+
+        if(rate >= 1.0f){
+            rate = 1.0f;
+        }
+
+        rate = rate / 13.0f;
+
+        return rate;
     }
 
 
+
+/*    //  備蓄人、必需品、割合の求め関数
+    public float GetRateStocks(float aStock, float bStock, float aNeed, float bNeed, float oNeed, int adult, int kids, int baby){
+        float rateFinal = 0.0f;
+        float rateAdult = 0.0f;
+        float rateBaby = 0.0f;
+        float rateUseful = 0.0f;
+
+        if((adult+kids) > 0){
+            rateAdult = aStock / aNeed;
+            if(rateAdult >= 1.0f){
+                rateAdult = 1.0f;
+            }
+            if( baby > 0 ){
+                rateAdult *= 0.5f;
+            } else {
+                rateAdult *= 0.6f;
+            }
+        } else {
+            rateAdult = 0.0f;
+        }
+
+        if(baby > 0){
+            rateBaby = bStock / bNeed;
+            if( rateBaby >= 1.0f ){
+                rateBaby = 1.0f;
+            }
+            if( (adult+kids) > 0 ){
+                rateBaby *= 0.1f;
+            } else {
+                rateBaby *= 0.6f;
+            }
+        } else {
+            rateBaby = 0.0f;
+        }
+
+        rateUseful = (aStock + bStock) / (aNeed + bNeed + oNeed);
+
+        rateAdult *= rateUseful;
+        rateBaby  *= rateUseful;
+
+        rateFinal = rateAdult + rateBaby;
+
+        return rateFinal;
+    }
+
+    //  備蓄品での合計必要数
+    public float GetNeedAdultStocks(int adult, int kids, int set){
+        int nAdult = 0;
+        int nKids = 0;
+        int total = 0;
+
+        switch(set){
+            case 1:
+                nAdult = adult * 3;
+                nKids = kids * 5 ;
+                break;
+
+            case 3:
+                nAdult = adult * 4;
+                nKids = kids * 4;
+                break;
+
+            case 7:
+                nAdult = adult * 7;
+                nKids = kids * 7;
+                break;
+        }
+        total = nAdult + nKids;
+
+        return  total;
+    }
+
+    //  幼児合計数
+    public float GetNeedBabyStocks(int baby, int set){
+        int total = 0;
+
+        switch(set){
+            case 1:
+                total = (baby * 6);
+                break;
+
+            case 3:
+                total = (baby * 10);
+                break;
+
+            case 7:
+                total = (baby * 19);
+                break;
+        }
+
+        return  total;
+    }
+
+    public float GetNeedStocksOrg(int set){
+        int total = 0;
+
+        switch(set){
+            case 1:
+                total = 11;
+                break;
+
+            case 3:
+                total = 12;
+                break;
+
+            case 7:
+                total = 22;
+                break;
+        }
+        return total;
+    }
+*/
+    public void Initialize(SampleClass x0,SampleClass x1,SampleClass x2,SampleClass x3,
+                            SampleClass x4,SampleClass x5,SampleClass x6,SampleClass x7,
+                            SampleClass x8,SampleClass x9,SampleClass x10,SampleClass x11){
+        SharedPreferences pref = getSharedPreferences("Preferences", MODE_PRIVATE);
+        //  設定の合計人数
+//        int adult   = pref.getInt("key_adult", 0);
+        x0.name = "レトルトご飯";
+        x0.food = pref.getInt("key_ReRice",0);
+
+        x1.name = "缶詰（ご飯）";
+        x1.food = pref.getInt("key_kandume",0);
+
+        x2.name = "乾麺";
+        x2.food = pref.getInt("key_kanmen",0);
+
+        x3.name = "乾パン";
+        x3.food = pref.getInt("key_kanpan",0);
+
+        x4.name = "缶詰（肉・魚）";
+        x4.food = pref.getInt("key_kandume2",0);
+
+        x5.name = "レトルト";
+        x5.food = pref.getInt("key_retoruto",0);
+
+        x6.name = "フリーズドライ";
+        x6.food = pref.getInt("key_furizzu",0);
+
+        x7.name = "カロリーメイト";
+        x7.food = pref.getInt("key_karori",0);
+
+        x8.name = "菓子類";
+        x8.food = pref.getInt("key_okasi",0);
+
+        x9.name = "粉ミルク";
+        x9.food = pref.getInt("key_konamilk",0);
+
+        x10.name = "離乳食";
+        x10.food = pref.getInt("key_rinyu",0);
+
+        x11.name = "水";
+        x11.food = pref.getInt("key_mizu",0);
+
+    }
+
+    public void TextDeadline(String name,int food, int lastdays, int id, int limit){
+        TextView txt = (TextView)findViewById(id);
+
+        if( food <= 0 ) {
+            //  表示しない
+            txt.setText("");
+        } else if ( lastdays == 0 ){
+            txt.setText("　　" + name +"の消費期限当日です");
+        } else if ( lastdays < 0 ) {
+            txt.setText("　　" +  name + "の消費期限が過ぎています");
+        } else if ( (lastdays - limit) <= 0){
+            txt.setText("　　" +  name + "の消費期限が" + ( lastdays ) + "日前です");
+        } else {
+            //  表示しない
+            txt.setText("");
+        }
+
+    }
+
+/*
+    //  関数、お試し。関数の中に関数を入れられるか？
+    public void func1(){
+        func2();
+    }
+
+    public void func2(){
+        int a = 1234;
+        TextView t = (TextView)findViewById(R.id.textView150);
+        t.setText("びーちくひん");
+    }
+
+    public int func3(int a){
+        return func4(a);
+    }
+
+    public int func4(int a){
+        return a * 4;
+    }
+*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -2506,7 +2927,7 @@ public class MainActivity extends Activity {
     }
 
     //  消費期限、算出関数。（一応完成？テストはまだ）
-    //  第一引数から「食品名、年、月、日、設定期限、TextViewなどの個別id」
+    //  第一引数から「年、月、日」
     public int DeadlineFood(int year, int month, int day){
 
         //  月の値の補正。（※1月が0、12月が11になるので）
@@ -2530,25 +2951,6 @@ public class MainActivity extends Activity {
                   + leap;
 
         return (deadline - today);
-    }
-
-    public void TextDeadline(String name,int food, int lastdays, int id, int limit){
-        TextView txt = (TextView)findViewById(id);
-
-        if( food <= 0 ) {
-            //  表示しない
-            txt.setText("");
-        } else if ( lastdays == 0 ){
-            txt.setText( name +"の消費期限当日です");
-        } else if ( lastdays < 0 ) {
-            txt.setText( name + "の消費期限が" + ( lastdays * (-1) ) + "日間過ぎています");
-        } else if ( (lastdays - limit) <= 0){
-            txt.setText( name + "の消費期限が" + ( lastdays ) + "日前です");
-        } else {
-            //  表示しない
-            txt.setText("");
-        }
-
     }
 
     //  月を日付に変換
@@ -2606,17 +3008,36 @@ public class MainActivity extends Activity {
             rateOverKids = 1.0f;
         }
 
+        rateOverKids *= 0.5f;
+
         return rateOverKids;
     }
+    //　幼児バージョン
+    public float CalRateForBaby(float food, int baby, int set){
+
+        float nfBaby = baby * 3;
+
+        float rateBaby = food / ( nfBaby * set );
+
+        rateBaby *= 0.5f;
+
+        if(rateBaby >= 0.5f){
+            rateBaby = 0.5f;
+            return rateBaby;
+        } else {
+            return rateBaby;
+        }
+    }
+
 
     //
     public float getRateWater(float water, int adult, int kids, int baby, int set){
         float rateWater;
-        int needTotal;
+        float needTotal;
 
         needTotal = ( (( adult * 3 ) + ( kids * 2 ) + ( baby * 2 )) * set );
 
-        rateWater = water / (float)needTotal;
+        rateWater = water / needTotal;
 
         //  食料との比較のため、半減。
         rateWater *= 0.5f;

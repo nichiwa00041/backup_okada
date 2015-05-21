@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
+        android:maxLength="2"
         android:id="@+id/input_rinyu"
         android:layout_alignBottom="@+id/imageView18"
         android:layout_toStartOf="@+id/textView135" />
@@ -37,47 +38,15 @@
         android:layout_height="wrap_content"
         android:text="幼児"
         android:id="@+id/textView143"
-        android:layout_above="@+id/date_rinyu"
-        android:layout_toEndOf="@+id/imageView18" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="小人"
-        android:id="@+id/textView144"
-        android:layout_above="@+id/textView143"
-        android:layout_toEndOf="@+id/imageView18" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="大人"
-        android:id="@+id/textView145"
-        android:layout_above="@+id/textView144"
-        android:layout_toEndOf="@+id/imageView18" />
+        android:layout_alignBottom="@+id/imageView18"
+        android:layout_toStartOf="@+id/rinyu_baby" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="人"
         android:id="@+id/textView146"
-        android:layout_below="@+id/textView147"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="人"
-        android:id="@+id/textView147"
-        android:layout_alignBottom="@+id/textView144"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="人"
-        android:id="@+id/textView148"
-        android:layout_above="@+id/textView147"
+        android:layout_alignBottom="@+id/imageView18"
         android:layout_alignParentEnd="true" />
 
     <TextView
@@ -85,24 +54,8 @@
         android:layout_height="wrap_content"
         android:text="XX"
         android:id="@+id/rinyu_baby"
-        android:layout_below="@+id/rinyu_kids"
-        android:layout_alignStart="@+id/rinyu_kids" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/rinyu_kids"
-        android:layout_below="@+id/textView148"
-        android:layout_toStartOf="@+id/textView147" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/rinyu_adult"
-        android:layout_alignTop="@+id/textView148"
-        android:layout_toStartOf="@+id/textView147" />
+        android:layout_alignBottom="@+id/imageView18"
+        android:layout_toStartOf="@+id/textView146" />
 
     <ImageButton
         android:layout_width="wrap_content"

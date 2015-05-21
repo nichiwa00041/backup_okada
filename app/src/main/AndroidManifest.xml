@@ -109,10 +109,6 @@
             android:label="@string/title_activity_food_pop_okasi" >
         </activity>
         <activity
-            android:name=".calendar_rerice"
-            android:label="@string/title_activity_calendar_rerice" >
-        </activity>
-        <activity
             android:name=".food_pop_konamilk"
             android:label="@string/title_activity_food_pop_konamilk" >
         </activity>
@@ -129,8 +125,76 @@
             android:label="@string/title_activity_setting_pop_setting" >
         </activity>
         <activity
-            android:name=".Main_pop_food_alert"
-            android:label="@string/title_activity_main_pop_food_alert" >
+            android:name=".stock_pop_otona"
+            android:label="@string/title_activity_stock_pop_otona" >
+        </activity>
+        <activity
+            android:name=".stock_pop_kodomo"
+            android:label="@string/title_activity_stock_pop_kodomo" >
+        </activity>
+        <activity
+            android:name=".stock_pop_kaichuudenntou"
+            android:label="@string/title_activity_stock_pop_kaichuudenntou" >
+        </activity>
+        <activity
+            android:name=".stock_pop_koppu"
+            android:label="@string/title_activity_stock_pop_koppu" >
+        </activity>
+        <activity
+            android:name=".stock_pop_utuwa"
+            android:label="@string/title_activity_stock_pop_utuwa" >
+        </activity>
+        <activity
+            android:name=".stock_pop_taoru"
+            android:label="@string/title_activity_stock_pop_taoru" >
+        </activity>
+        <activity
+            android:name=".stock_pop_rappu"
+            android:label="@string/title_activity_stock_pop_rappu" >
+        </activity>
+        <activity
+            android:name=".stock_pop_hukuro"
+            android:label="@string/title_activity_stock_pop_hukuro" >
+        </activity>
+        <activity
+            android:name=".stock_pop_spoon"
+            android:label="@string/title_activity_stock_pop_spoon" >
+        </activity>
+        <activity
+            android:name=".stock_pop_hasi"
+            android:label="@string/title_activity_stock_pop_hasi" >
+        </activity>
+        <activity
+            android:name=".stock_pop_denti"
+            android:label="@string/title_activity_stock_pop_denti" >
+        </activity>
+        <activity
+            android:name=".stock_pop_radio"
+            android:label="@string/title_activity_stock_pop_radio" >
+        </activity>
+        <activity
+            android:name=".stock_pop_kankiri"
+            android:label="@string/title_activity_stock_pop_kankiri" >
+        </activity>
+        <activity
+            android:name=".stock_pop_masuku"
+            android:label="@string/title_activity_stock_pop_masuku" >
+        </activity>
+        <activity
+            android:name=".stock_pop_juudennki"
+            android:label="@string/title_activity_stock_pop_juudennki" >
+        </activity>
+        <activity
+            android:name=".stock_pop_bin"
+            android:label="@string/title_activity_stock_pop_bin" >
+        </activity>
+        <activity
+            android:name=".stock_pop_omutu"
+            android:label="@string/title_activity_stock_pop_omutu" >
+        </activity>
+        <activity
+            android:name=".stock_pop_nebukuto"
+            android:label="@string/title_activity_stock_pop_nebukuto" >
         </activity>
     </application>
 

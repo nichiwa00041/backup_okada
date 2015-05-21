@@ -82,4 +82,22 @@
         <item>7</item>
     </string-array>
     <string name="title_activity_main_pop_food_alert">Main_pop_food_alert</string>
+    <string name="title_activity_stock_pop_otona">stock_pop_otona</string>
+    <string name="title_activity_stock_pop_kodomo">stock_pop_kodomo</string>
+    <string name="title_activity_stock_pop_kaichuudenntou">stock_pop_kaichuudenntou</string>
+    <string name="title_activity_stock_pop_koppu">stock_pop_koppu</string>
+    <string name="title_activity_stock_pop_utuwa">stock_pop_utuwa</string>
+    <string name="title_activity_stock_pop_taoru">stock_pop_taoru</string>
+    <string name="title_activity_stock_pop_rappu">stock_pop_rappu</string>
+    <string name="title_activity_stock_pop_hukuro">stock_pop_hukuro</string>
+    <string name="title_activity_stock_pop_spoon">stock_pop_spoon</string>
+    <string name="title_activity_stock_pop_hasi">stock_pop_hasi</string>
+    <string name="title_activity_stock_pop_denti">stock_pop_denti</string>
+    <string name="title_activity_stock_pop_radio">stock_pop_radio</string>
+    <string name="title_activity_stock_pop_kankiri">stock_pop_kankiri</string>
+    <string name="title_activity_stock_pop_masuku">stock_pop_masuku</string>
+    <string name="title_activity_stock_pop_juudennki">stock_pop_juudennki</string>
+    <string name="title_activity_stock_pop_bin">stock_pop_bin</string>
+    <string name="title_activity_stock_pop_omutu">stock_pop_omutu</string>
+    <string name="title_activity_stock_pop_nebukuto">stock_pop_nebukuto</string>
 </resources>

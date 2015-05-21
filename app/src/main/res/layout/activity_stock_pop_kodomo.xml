@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.okadayosuke.myapplication.stock_pop_kodomo">
+
+    <TextView android:text="枚" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView21"
+        android:layout_toStartOf="@+id/imageView21"
+        android:id="@+id/textView160" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView21"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/kodomo" />
+
+    <EditText
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:maxLength="2"
+        android:id="@+id/input_kodomo"
+        android:layout_alignBottom="@+id/textView160"
+        android:layout_toStartOf="@+id/textView160" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="小人 XX 人"
+        android:id="@+id/textView162"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/imageView21" />
+
+</RelativeLayout>

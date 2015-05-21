@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="ホーム"
         android:id="@+id/stock_home"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/scrollView2"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="非常食"
         android:id="@+id/stock_food"
-        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/stock_home"
         android:layout_toEndOf="@+id/stock_home" />
 
     <Button
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:text="設定"
         android:id="@+id/stock_setting"
-        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/stock"
         android:layout_alignParentEnd="true" />
 
     <Button
@@ -35,71 +35,279 @@
         android:layout_height="wrap_content"
         android:text="備蓄品"
         android:id="@+id/stock"
-        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/stock_food"
         android:layout_toStartOf="@+id/stock_setting" />
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/popup_gas"
-        android:src="@drawable/gas"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/stock_food" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="378dp"
+        android:id="@+id/scrollView2"
+        android:layout_alignParentStart="true"
+        android:fillViewport="false">
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/popup_almi"
-        android:src="@drawable/almi"
-        android:layout_below="@+id/popup_gas"
-        android:layout_alignStart="@+id/popup_gas" />
+    <GridLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/textView14"
+        android:layout_alignParentStart="true">
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/popup_bombe"
-        android:src="@drawable/bombe"
-        android:layout_below="@+id/popup_almi"
-        android:layout_alignStart="@+id/popup_almi" />
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/popup_gunnte"
-        android:src="@drawable/gunnte"
-        android:layout_below="@+id/popup_bombe"
-        android:layout_alignStart="@+id/popup_bombe" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="必需品"
+            android:id="@+id/textView14"
+            android:layout_alignTop="@+id/scrollView2"
+            android:layout_alignParentStart="true"
+            android:layout_row="0"
+            android:layout_column="0" />
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/popup_hue"
-        android:src="@drawable/hue"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/stock" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_hue"
+            android:layout_row="7"
+            android:layout_column="1"
+            android:src="@drawable/hue" />
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/popup_matti"
-        android:src="@drawable/matti"
-        android:layout_alignTop="@+id/popup_almi"
-        android:layout_alignStart="@+id/popup_hue" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_matti"
+            android:layout_row="7"
+            android:layout_column="2"
+            android:src="@drawable/matti" />
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/popup_sitagi"
-        android:src="@drawable/sitagi"
-        android:layout_above="@+id/popup_gunnte"
-        android:layout_alignStart="@+id/popup_matti" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_radio"
+            android:layout_row="8"
+            android:layout_column="0"
+            android:src="@drawable/radio" />
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/popup_thissyu"
-        android:src="@drawable/thissyu"
-        android:layout_alignTop="@+id/popup_gunnte"
-        android:layout_alignStart="@+id/popup_sitagi" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_kankiri"
+            android:layout_row="8"
+            android:layout_column="1"
+            android:src="@drawable/kankiri" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_masuku"
+            android:layout_row="8"
+            android:layout_column="2"
+            android:src="@drawable/masuku" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_juudennki"
+            android:layout_row="9"
+            android:layout_column="0"
+            android:src="@drawable/juudennki" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="乳児用"
+            android:id="@+id/textView155"
+            android:layout_row="10"
+            android:layout_column="0" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_bin"
+            android:layout_row="11"
+            android:layout_column="0"
+            android:src="@drawable/bin" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_omutu"
+            android:layout_row="11"
+            android:layout_column="1"
+            android:src="@drawable/omutu" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_nebukuro"
+            android:layout_row="9"
+            android:layout_column="1"
+            android:src="@drawable/nebukuro" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_otona"
+            android:layout_below="@+id/textView14"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/otona"
+            android:layout_row="1"
+            android:layout_column="0" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_koppu"
+            android:layout_below="@+id/popup_otona"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/koppu"
+            android:layout_row="2"
+            android:layout_column="0" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_utuwa"
+            android:layout_below="@+id/popup_otona"
+            android:layout_toStartOf="@+id/popup_kaichuudentou"
+            android:src="@drawable/utuwa"
+            android:layout_row="2"
+            android:layout_column="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_taoru"
+            android:src="@drawable/taoru"
+            android:layout_below="@+id/popup_kaichuudentou"
+            android:layout_alignParentEnd="true"
+            android:layout_row="2"
+            android:layout_column="2" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_almi"
+            android:layout_below="@+id/popup_koppu"
+            android:layout_toStartOf="@+id/popup_utuwa"
+            android:src="@drawable/almi"
+            android:layout_row="3"
+            android:layout_column="0" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_rappu"
+            android:layout_below="@+id/popup_koppu"
+            android:layout_alignEnd="@+id/popup_utuwa"
+            android:src="@drawable/rappu"
+            android:layout_row="3"
+            android:layout_column="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_bombe"
+            android:layout_alignTop="@+id/popup_rappu"
+            android:layout_alignStart="@+id/popup_taoru"
+            android:src="@drawable/bombe"
+            android:layout_row="3"
+            android:layout_column="2" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_kodomo"
+            android:layout_alignTop="@+id/popup_otona"
+            android:layout_toEndOf="@+id/popup_otona"
+            android:src="@drawable/kodomo"
+            android:layout_row="1"
+            android:layout_column="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_kaichuudentou"
+            android:layout_alignTop="@+id/popup_kodomo"
+            android:layout_toEndOf="@+id/popup_kodomo"
+            android:src="@drawable/kaichuudentou"
+            android:layout_row="1"
+            android:layout_column="2" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_gas"
+            android:src="@drawable/gas"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_column="0"
+            android:layout_row="4" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_thissyu"
+            android:layout_row="4"
+            android:layout_column="1"
+            android:src="@drawable/thissyu" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_hukuro"
+            android:layout_row="4"
+            android:layout_column="2"
+            android:src="@drawable/hukuro" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_spoon"
+            android:layout_below="@+id/stock_home"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/spoon"
+            android:layout_column="0"
+            android:layout_row="5" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_hasi"
+            android:layout_below="@+id/stock_food"
+            android:layout_toStartOf="@+id/stock_setting"
+            android:layout_column="1"
+            android:layout_row="5"
+            android:src="@drawable/hasi" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_denti"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/denti"
+            android:layout_column="2"
+            android:layout_row="5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="便利品"
+            android:id="@+id/textView154"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_column="0"
+            android:layout_row="6" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_gunnte"
+            android:layout_row="7"
+            android:layout_column="0"
+            android:src="@drawable/gunnte" />
+
+    </GridLayout>
+    </ScrollView>
 
 </RelativeLayout>

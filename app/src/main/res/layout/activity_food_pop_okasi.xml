@@ -33,42 +33,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="幼児"
-        android:id="@+id/textView69"
-        android:layout_alignBottom="@+id/imageView16"
-        android:layout_toEndOf="@+id/imageView16" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="人"
-        android:id="@+id/textView70"
-        android:layout_alignBottom="@+id/textView69"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="小人"
         android:id="@+id/textView71"
-        android:layout_above="@+id/textView69"
-        android:layout_toEndOf="@+id/imageView16" />
+        android:layout_below="@+id/textView73"
+        android:layout_alignStart="@+id/textView73" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="人"
         android:id="@+id/textView72"
-        android:layout_above="@+id/textView70"
-        android:layout_alignEnd="@+id/textView70" />
+        android:layout_alignTop="@+id/okasi_kids"
+        android:layout_toEndOf="@+id/okasi_kids" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="大人"
         android:id="@+id/textView73"
-        android:layout_above="@+id/textView71"
-        android:layout_alignStart="@+id/textView71" />
+        android:layout_alignTop="@+id/okasi_adult"
+        android:layout_toStartOf="@+id/okasi_adult" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,16 +75,8 @@
         android:layout_height="wrap_content"
         android:text="XX"
         android:id="@+id/okasi_kids"
-        android:layout_above="@+id/textView70"
-        android:layout_toStartOf="@+id/textView70" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/okasi_baby"
-        android:layout_alignBottom="@+id/textView70"
-        android:layout_toStartOf="@+id/textView70" />
+        android:layout_above="@+id/calendar_okasi"
+        android:layout_toStartOf="@+id/textView74" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -115,8 +91,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/calendar_okasi"
-        android:layout_below="@+id/textView69"
-        android:layout_toEndOf="@+id/date_okasi"
-        android:src="@drawable/icon_calendar" />
+        android:src="@drawable/icon_calendar"
+        android:layout_below="@+id/imageView16"
+        android:layout_toEndOf="@+id/date_okasi" />
 
 </RelativeLayout>

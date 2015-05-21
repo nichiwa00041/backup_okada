@@ -34,42 +34,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="幼児"
-        android:id="@+id/textView81"
-        android:layout_alignBottom="@+id/imageView9"
-        android:layout_toEndOf="@+id/imageView9" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="人"
-        android:id="@+id/textView82"
-        android:layout_alignBottom="@+id/textView81"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="小人"
         android:id="@+id/textView83"
-        android:layout_above="@+id/textView81"
-        android:layout_toEndOf="@+id/imageView9" />
+        android:layout_below="@+id/retoruto_adult"
+        android:layout_toStartOf="@+id/retoruto_kids" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="人"
         android:id="@+id/textView84"
-        android:layout_above="@+id/textView82"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/imageView9" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="大人"
         android:id="@+id/textView85"
-        android:layout_above="@+id/textView83"
-        android:layout_toEndOf="@+id/imageView9" />
+        android:layout_alignTop="@+id/retoruto_adult"
+        android:layout_toStartOf="@+id/retoruto_adult" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -92,16 +76,8 @@
         android:layout_height="wrap_content"
         android:text="XX"
         android:id="@+id/retoruto_kids"
-        android:layout_above="@+id/textView82"
-        android:layout_toStartOf="@+id/textView82" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/retoruto_baby"
-        android:layout_alignBottom="@+id/input_retoruto"
-        android:layout_toStartOf="@+id/textView82" />
+        android:layout_below="@+id/textView86"
+        android:layout_alignStart="@+id/retoruto_adult" />
 
     <TextView
         android:layout_width="wrap_content"

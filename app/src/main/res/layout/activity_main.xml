@@ -8,18 +8,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="今日はXXXX年XX月XX日です"
-        android:id="@+id/Date"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true" />
+        android:text="非常食"
+        android:id="@+id/textView152"
+        android:layout_alignTop="@+id/textView153"
+        android:layout_alignStart="@+id/graphLeft" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="防災グッズ"
+        android:id="@+id/textView153"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/Graph_right_0" />
     <Button
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="ホーム"
         android:id="@+id/home"
-        android:layout_below="@+id/limit_food12"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="91dp" />
 
     <Button
         android:layout_width="80dp"
@@ -35,7 +43,7 @@
         android:text="設定"
         android:id="@+id/home_setting"
         android:layout_alignTop="@+id/home_stock"
-        android:layout_alignEnd="@+id/total_stock" />
+        android:layout_alignEnd="@+id/imageView19" />
 
     <Button
         android:layout_width="80dp"
@@ -49,202 +57,43 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/graphLeft"
-        android:src="@drawable/graph_left_1"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/textView151" />
+        android:src="@drawable/graph0"
+        android:layout_below="@+id/textView152"
+        android:layout_toEndOf="@+id/textView" />
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/Graph_right_0"
         android:src="@drawable/graph_right_0"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView14" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="非常食合計"
-        android:id="@+id/textView13"
-        android:layout_below="@+id/graphLeft"
-        android:layout_alignStart="@+id/textView151" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/total_food"
-        android:layout_below="@+id/graphLeft"
-        android:layout_alignEnd="@+id/graphLeft" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/total_stock"
-        android:layout_alignTop="@+id/total_food"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="備蓄品合計"
-        android:id="@+id/textView14"
-        android:layout_below="@+id/Graph_right_0"
-        android:layout_toEndOf="@+id/Date" />
+        android:layout_below="@+id/textView153"
+        android:layout_alignStart="@+id/home_stock" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="％"
         android:id="@+id/textView149"
-        android:layout_below="@+id/textView13"
-        android:layout_alignEnd="@+id/total_food" />
+        android:textSize="12dp"
+        android:layout_below="@+id/graphLeft"
+        android:layout_alignEnd="@+id/graphLeft" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="XXX"
         android:id="@+id/percent_food"
-        android:layout_alignBottom="@+id/textView149"
+        android:textSize="12dp"
+        android:layout_above="@+id/last_food"
         android:layout_toStartOf="@+id/textView149" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="備蓄率"
+        android:text="非常食"
+        android:textSize="12dp"
         android:id="@+id/textView151"
         android:layout_alignBottom="@+id/percent_food" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/aleat_food"
-        android:textColor="#ff0000"
-        android:layout_below="@+id/Date"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/limit_food1"
-        android:textSize="12dp"
-        android:layout_marginTop="16dp"
-        android:layout_below="@+id/aleat_food"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/limit_food2"
-        android:textSize="12dp"
-        android:layout_below="@+id/limit_food1"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/limit_food3"
-        android:textSize="12dp"
-        android:layout_below="@+id/limit_food2"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/limit_food4"
-        android:textSize="12dp"
-        android:layout_below="@+id/limit_food3"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/limit_food5"
-        android:textSize="12dp"
-        android:layout_below="@+id/limit_food4"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/limit_food6"
-        android:textSize="12dp"
-        android:layout_below="@+id/limit_food5"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/limit_food7"
-        android:textSize="12dp"
-        android:layout_below="@+id/limit_food6"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/limit_food8"
-        android:textSize="12dp"
-        android:layout_below="@+id/limit_food7"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/limit_food9"
-        android:textSize="12dp"
-        android:layout_below="@+id/limit_food8"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/limit_food10"
-        android:textSize="12dp"
-        android:layout_below="@+id/limit_food9"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/limit_food11"
-        android:textSize="12dp"
-        android:layout_below="@+id/limit_food10"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/limit_food12"
-        android:textSize="12dp"
-        android:layout_below="@+id/limit_food11"
-        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -264,13 +113,224 @@
         android:layout_below="@+id/textView149"
         android:layout_alignEnd="@+id/textView149" />
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView19"
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/home_setting"
+        android:layout_alignParentStart="true" />
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:id="@+id/scrollView"
+        android:layout_above="@+id/home"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="64dp"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/Graph_right_0"
+            android:background="#ffff99">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/aleat_food"
+            android:textColor="#ff0000"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="備蓄不足の文章予定"
+            android:textColor="#ff0000"
+            android:id="@+id/textView150"
+            android:layout_below="@+id/aleat_food"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:textColor="#ff0000"
+            android:id="@+id/alert_baby" />
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/limit_food1"
+            android:textSize="14dp"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/aleat_food"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/limit_food2"
+            android:textSize="14dp"
+            android:layout_below="@+id/limit_food1"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/limit_food3"
+            android:textSize="14dp"
+            android:layout_below="@+id/limit_food2"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/limit_food4"
+            android:textSize="14dp"
+            android:layout_below="@+id/limit_food3"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/limit_food5"
+            android:textSize="14dp"
+            android:layout_below="@+id/limit_food4"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/limit_food6"
+            android:textSize="14dp"
+            android:layout_below="@+id/limit_food5"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/limit_food7"
+            android:textSize="14dp"
+            android:layout_below="@+id/limit_food6"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/limit_food8"
+            android:textSize="14dp"
+            android:layout_below="@+id/limit_food7"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/limit_food9"
+            android:textSize="14dp"
+            android:layout_below="@+id/limit_food8"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/limit_food10"
+            android:textSize="14dp"
+            android:layout_below="@+id/limit_food9"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/limit_food11"
+            android:textSize="14dp"
+            android:layout_below="@+id/limit_food10"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/limit_food12"
+            android:textSize="14dp"
+            android:layout_below="@+id/limit_food11"
+            android:layout_alignParentStart="true" />
+    </LinearLayout>
+    </ScrollView>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="備蓄不足の文章予定"
-        android:textColor="#ff0000"
-        android:id="@+id/textView150"
-        android:layout_below="@+id/aleat_food"
+        android:text="要チェック"
+        android:id="@+id/textView13"
+        android:layout_above="@+id/scrollView"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView300"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView301"
+        android:layout_below="@+id/textView300"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView302"
+        android:layout_below="@+id/textView301"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView303"
+        android:layout_below="@+id/textView302"
+        android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>

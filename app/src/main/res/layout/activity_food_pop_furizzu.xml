@@ -6,7 +6,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.okadayosuke.myapplication.food_pop_furizzu">
 
-    <TextView android:text="食" android:layout_width="wrap_content"
+    <TextView android:text="塊" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView11"
         android:layout_toStartOf="@+id/imageView11"
@@ -33,42 +33,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="幼児"
-        android:id="@+id/textView51"
-        android:layout_alignBottom="@+id/imageView11"
-        android:layout_toEndOf="@+id/imageView11" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="人"
-        android:id="@+id/textView52"
-        android:layout_alignBottom="@+id/textView51"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="小人"
         android:id="@+id/textView53"
-        android:layout_above="@+id/textView51"
-        android:layout_toEndOf="@+id/imageView11" />
+        android:layout_above="@+id/calendar_furizzu"
+        android:layout_toStartOf="@+id/furizzu_kids" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="人"
         android:id="@+id/textView54"
-        android:layout_above="@+id/textView52"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/imageView11" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="大人"
         android:id="@+id/textView55"
-        android:layout_above="@+id/textView53"
-        android:layout_toEndOf="@+id/imageView11" />
+        android:layout_alignTop="@+id/furizzu_adult"
+        android:layout_toStartOf="@+id/furizzu_adult" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,16 +75,8 @@
         android:layout_height="wrap_content"
         android:text="XX"
         android:id="@+id/furizzu_kids"
-        android:layout_above="@+id/textView52"
-        android:layout_toStartOf="@+id/textView52" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/furizzu_baby"
-        android:layout_alignBottom="@+id/textView52"
-        android:layout_toStartOf="@+id/textView52" />
+        android:layout_below="@+id/furizzu_adult"
+        android:layout_alignStart="@+id/furizzu_adult" />
 
     <TextView
         android:layout_width="wrap_content"

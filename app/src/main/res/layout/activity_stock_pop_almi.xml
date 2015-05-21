@@ -35,49 +35,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="幼児"
-        android:id="@+id/textView87"
-        android:layout_alignBottom="@+id/almi"
-        android:layout_toEndOf="@+id/almi" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="人"
-        android:id="@+id/textView88"
-        android:layout_alignTop="@+id/textView87"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="小人"
-        android:id="@+id/textView89"
-        android:layout_above="@+id/textView87"
-        android:layout_toEndOf="@+id/almi" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="人"
-        android:id="@+id/textView90"
-        android:layout_alignTop="@+id/textView89"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="大人"
         android:id="@+id/textView91"
-        android:layout_above="@+id/textView89"
-        android:layout_toEndOf="@+id/almi" />
+        android:layout_alignBottom="@+id/almi"
+        android:layout_toStartOf="@+id/almi_adult" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="人"
         android:id="@+id/textView92"
-        android:layout_above="@+id/textView90"
+        android:layout_alignTop="@+id/almi_adult"
         android:layout_alignParentEnd="true" />
 
     <TextView
@@ -85,23 +53,7 @@
         android:layout_height="wrap_content"
         android:text="XX"
         android:id="@+id/almi_adult"
-        android:layout_above="@+id/textView89"
-        android:layout_toStartOf="@+id/textView90" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/almi_kids"
-        android:layout_above="@+id/textView87"
-        android:layout_toStartOf="@+id/textView88" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:id="@+id/almi_baby"
-        android:layout_alignBottom="@+id/textView87"
-        android:layout_toStartOf="@+id/textView88" />
+        android:layout_alignTop="@+id/textView91"
+        android:layout_toStartOf="@+id/textView92" />
 
 </RelativeLayout>

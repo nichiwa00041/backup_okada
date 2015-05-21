@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -171,6 +172,8 @@ public class food extends Activity {
             }
         });
 
+        SharedPreferences pref = getSharedPreferences("Preferences", MODE_PRIVATE);
+
 
         //  ポップアップ（ダイアログ）の作成
         ImageButton btnReRice = (ImageButton)findViewById(R.id.popup_food_retorutogohan);
@@ -195,26 +198,19 @@ public class food extends Activity {
                 int kids = 0;
                 kids = prefReRice.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefReRice.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vReRice.findViewById(R.id.input_ReRice);
                 TextView tAdult = (TextView)vReRice.findViewById(R.id.rerice_adult);
                 TextView tKids = (TextView)vReRice.findViewById(R.id.rerice_kids);
-                TextView tBaby = (TextView)vReRice.findViewById(R.id.rerice_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
-
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -349,25 +345,19 @@ public class food extends Activity {
                 int kids = 0;
                 kids = prefKandume.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefKandume.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vKandume.findViewById(R.id.input_kandume);
                 TextView tAdult = (TextView)vKandume.findViewById(R.id.kandume_adult);
                 TextView tKids = (TextView)vKandume.findViewById(R.id.kandume_kids);
-                TextView tBaby = (TextView)vKandume.findViewById(R.id.kandume_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -501,25 +491,19 @@ public class food extends Activity {
                 int kids = 0;
                 kids = prefKanpan.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefKanpan.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vKanpan.findViewById(R.id.input_kanpan);
                 TextView tAdult = (TextView)vKanpan.findViewById(R.id.kanpan_adult);
                 TextView tKids = (TextView)vKanpan.findViewById(R.id.kanpan_kids);
-                TextView tBaby = (TextView)vKanpan.findViewById(R.id.kanpan_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -657,27 +641,19 @@ public class food extends Activity {
                 int kids = 0;
                 kids = prefKanmen.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefKanmen.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
-
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vKanmen.findViewById(R.id.input_kanmen);
                 TextView tAdult = (TextView)vKanmen.findViewById(R.id.kanmen_adult);
                 TextView tKids = (TextView)vKanmen.findViewById(R.id.kanmen_kids);
-                TextView tBaby = (TextView)vKanmen.findViewById(R.id.kanmen_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
-
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -811,25 +787,19 @@ public class food extends Activity {
                 int kids = 0;
                 kids = prefKandume2.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefKandume2.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vKandume2.findViewById(R.id.input_kandume2);
                 TextView tAdult = (TextView)vKandume2.findViewById(R.id.kandume2_adult);
                 TextView tKids = (TextView)vKandume2.findViewById(R.id.kandume2_kids);
-                TextView tBaby = (TextView)vKandume2.findViewById(R.id.kandume2_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -963,25 +933,19 @@ public class food extends Activity {
                 int kids = 0;
                 kids = prefFurizzu.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefFurizzu.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vFurizzu.findViewById(R.id.input_furizzu);
                 TextView tAdult = (TextView)vFurizzu.findViewById(R.id.furizzu_adult);
                 TextView tKids = (TextView)vFurizzu.findViewById(R.id.furizzu_kids);
-                TextView tBaby = (TextView)vFurizzu.findViewById(R.id.furizzu_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -1116,25 +1080,19 @@ public class food extends Activity {
                 int kids = 0;
                 kids = prefRetoruto.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefRetoruto.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vRetoruto.findViewById(R.id.input_retoruto);
                 TextView tAdult = (TextView)vRetoruto.findViewById(R.id.retoruto_adult);
                 TextView tKids = (TextView)vRetoruto.findViewById(R.id.retoruto_kids);
-                TextView tBaby = (TextView)vRetoruto.findViewById(R.id.retoruto_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -1274,6 +1232,7 @@ public class food extends Activity {
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
                 String strBaby = String.valueOf(baby);
+
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vMisu.findViewById(R.id.input_mizu);
@@ -1417,25 +1376,19 @@ public class food extends Activity {
                 int kids = 0;
                 kids = prefOkasi.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefOkasi.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vOkasi.findViewById(R.id.input_okasi);
                 TextView tAdult = (TextView)vOkasi.findViewById(R.id.okasi_adult);
                 TextView tKids = (TextView)vOkasi.findViewById(R.id.okasi_kids);
-                TextView tBaby = (TextView)vOkasi.findViewById(R.id.okasi_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -1567,25 +1520,20 @@ public class food extends Activity {
                 int kids = 0;
                 kids = prefKarori.getInt("key_kids", kids);
 
-                int baby = 0;
-                baby = prefKarori.getInt("key_baby", baby);
-
                 String str = String.valueOf(i);
                 String strAdult = String.valueOf(adult);
                 String strKids = String.valueOf(kids);
-                String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vKarori.findViewById(R.id.input_karori);
                 TextView tAdult = (TextView)vKarori.findViewById(R.id.karori_adult);
                 TextView tKids = (TextView)vKarori.findViewById(R.id.karori_kids);
-                TextView tBaby = (TextView)vKarori.findViewById(R.id.karori_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
                 tAdult.setText(strAdult);
                 tKids.setText(strKids);
-                tBaby.setText(strBaby);
+
 
                 //  プリファレンス
                 SharedPreferences prefCal = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -1712,30 +1660,18 @@ public class food extends Activity {
                 int i = 0;
                 i = prefKona.getInt("key_konamilk", 0);
 
-                int adult = 0;
-                adult = prefKona.getInt("key_adult", adult);
-
-                int kids = 0;
-                kids = prefKona.getInt("key_kids", kids);
-
                 int baby = 0;
                 baby = prefKona.getInt("key_baby", baby);
 
                 String str = String.valueOf(i);
-                String strAdult = String.valueOf(adult);
-                String strKids = String.valueOf(kids);
                 String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
                 EditText et = (EditText)vKona.findViewById(R.id.input_konamilk);
-                TextView tAdult = (TextView)vKona.findViewById(R.id.konamilk_adult);
-                TextView tKids = (TextView)vKona.findViewById(R.id.konamilk_kids);
                 TextView tBaby = (TextView)vKona.findViewById(R.id.konamilk_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
-                tAdult.setText(strAdult);
-                tKids.setText(strKids);
                 tBaby.setText(strBaby);
 
                 //  プリファレンス
@@ -1862,30 +1798,18 @@ public class food extends Activity {
                 int i = 0;
                 i = prefRinyu.getInt("key_rinyu", i);
 
-                int adult = 0;
-                adult = prefRinyu.getInt("key_adult", adult);
-
-                int kids = 0;
-                kids = prefRinyu.getInt("key_kids", kids);
-
                 int baby = 0;
                 baby = prefRinyu.getInt("key_baby", baby);
 
                 String str = String.valueOf(i);
-                String strAdult = String.valueOf(adult);
-                String strKids = String.valueOf(kids);
                 String strBaby = String.valueOf(baby);
 
                 //  必ずView変換で作成したデータを使うこと
-                EditText et = (EditText)vRinyu.findViewById(R.id.input_rinyu);
-                TextView tAdult = (TextView)vRinyu.findViewById(R.id.rinyu_adult);
-                TextView tKids = (TextView)vRinyu.findViewById(R.id.rinyu_kids);
-                TextView tBaby = (TextView)vRinyu.findViewById(R.id.rinyu_baby);
+                EditText et = (EditText) vRinyu.findViewById(R.id.input_rinyu);
+                TextView tBaby = (TextView) vRinyu.findViewById(R.id.rinyu_baby);
 
                 //  はいっちゃう（変数内に保存される）
                 et.setText(str);
-                tAdult.setText(strAdult);
-                tKids.setText(strKids);
                 tBaby.setText(strBaby);
 
                 //  プリファレンス
@@ -1895,27 +1819,27 @@ public class food extends Activity {
                 bfDay = prefCal.getInt("bfDay", bfDay);
 
                 //  ポップアップ内の日付、設定した賞味期限の表示
-                TextView tw = (TextView)vRinyu.findViewById(R.id.date_rinyu);
+                TextView tw = (TextView) vRinyu.findViewById(R.id.date_rinyu);
                 tw.setText("賞味期限は"
                         + bfYear + "年"
-                        + (bfMonth+1) + "月"
+                        + (bfMonth + 1) + "月"
                         + bfDay + "日です");
                 //  プリファレンスの作成E
 
                 //  ポップアップ内でカレンダーポップアップS
-                ImageButton btnCal = (ImageButton)vRinyu.findViewById(R.id.calendar_rinyu);
+                ImageButton btnCal = (ImageButton) vRinyu.findViewById(R.id.calendar_rinyu);
                 btnCal.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                        DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener(){
+                        DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
 
                             public void onDateSet(
 
                                     DatePicker view,
                                     int year,
                                     int monthOfYear,
-                                    int dayOfMonth){
+                                    int dayOfMonth) {
 
                                 bfYear = year;
                                 bfMonth = monthOfYear;
@@ -1962,7 +1886,7 @@ public class food extends Activity {
 
                         LastYear.putInt("last_year", lastYear);
                         LastMonth.putInt("last_month", lastMonth);
-                        LastDay.putInt("last_day", lastDay+1);
+                        LastDay.putInt("last_day", lastDay);
 
                         LastYear.commit();
                         LastMonth.commit();
@@ -1970,10 +1894,10 @@ public class food extends Activity {
 
                         SharedPreferences.Editor e = prefRinyu.edit();
 
-                        EditText etRinyu = (EditText)vRinyu.findViewById(R.id.input_rinyu);
+                        EditText etRinyu = (EditText) vRinyu.findViewById(R.id.input_rinyu);
                         String strRinyu = etRinyu.getText().toString();
 
-                        if(strRinyu.length() <= 0){
+                        if (strRinyu.length() <= 0) {
                             strRinyu = "0";
                         }
 
@@ -1993,6 +1917,96 @@ public class food extends Activity {
 
             }
         });
+
+        //  非常食の備蓄量が規定以下の場合、枠色を赤色に。
+        int adult   = pref.getInt("key_adult", 0);
+        int kids    = pref.getInt("key_kids", 0);
+        int baby    = pref.getInt("key_baby", 0);
+
+        int ReRice = 0;
+        ReRice = pref.getInt("key_ReRice", ReRice);
+
+        int kandume = 0;
+        kandume = pref.getInt("key_kandume", kandume);
+
+        int kanmen = 0;
+        kanmen = pref.getInt("key_kanmen", kanmen);
+
+        int kanpan = 0;
+        kanpan = pref.getInt("key_kanpan", kanpan);
+
+        int kandume2 = 0;
+        kandume2 = pref.getInt("key_kandume2", kandume2);
+
+        int retoruto = 0;
+        retoruto = pref.getInt("key_retoruto", retoruto);
+
+        int furizzu = 0;
+        furizzu = pref.getInt("key_furizzu", furizzu);
+
+        int kona = 0;
+        kona = pref.getInt("key_konamilk", kona);
+
+        int rinyu = 0;
+        rinyu = pref.getInt("key_rinyu", rinyu);
+
+        int karori = 0;
+        karori = pref.getInt("key_karori", karori);
+
+        int okasi = 0;
+        okasi = pref.getInt("key_okasi", okasi);
+
+        int mizu = 0;
+        mizu = pref.getInt("key_mizu", mizu);
+
+
+        if( ReRice < ( adult * 3 + kids * 2 ) ) {
+            btnReRice.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
+
+        if( kandume < ( adult * 3 + kids * 2 ) ) {
+            btnKandume.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
+
+        if( kanmen < ( adult * 3 + kids * 2 ) ) {
+            btnKanmen.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
+
+        if( kanpan < ( adult * 3 + kids * 2 ) ) {
+            btnKanpan.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
+
+        if( kandume2 < ( adult * 3 + kids * 2 ) ) {
+            btnKandume2.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
+
+        if( retoruto < ( adult * 3 + kids * 2 ) ) {
+            btnRetoruto.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
+
+        if( furizzu < ( adult * 3 + kids * 2 ) ) {
+            btnFurizzu.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
+
+        if( karori < ( adult * 3 + kids * 2 ) ) {
+            btnKarori.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
+
+        if( okasi < ( adult * 3 + kids * 2 ) ) {
+            btnOkasi.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
+
+        if( kona < ( baby * 3 ) ) {
+            btnKona.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
+
+        if( rinyu < ( baby * 3 ) ) {
+            btnRinyu.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
+
+        if( mizu < ( adult * 3 + kids * 2 + baby * 2) ) {
+            btnMisu.setBackgroundColor(Color.parseColor("#ff0000"));
+        }
 
     }
 
