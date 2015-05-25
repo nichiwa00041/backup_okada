@@ -10,24 +10,23 @@
         android:layout_height="wrap_content"
         android:text="非常食"
         android:id="@+id/textView152"
-        android:layout_alignTop="@+id/textView153"
-        android:layout_alignStart="@+id/graphLeft" />
+        android:layout_above="@+id/graphRight"
+        android:layout_toEndOf="@+id/home" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="防災グッズ"
+        android:text="備蓄品"
         android:id="@+id/textView153"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/Graph_right_0" />
+        android:layout_toStartOf="@+id/home_setting" />
     <Button
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="ホーム"
         android:id="@+id/home"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="91dp" />
+        android:layout_above="@+id/imageView19"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="80dp"
@@ -50,7 +49,7 @@
         android:layout_height="wrap_content"
         android:text="備蓄品"
         android:id="@+id/home_stock"
-        android:layout_alignTop="@+id/home_food"
+        android:layout_below="@+id/scrollView"
         android:layout_toStartOf="@+id/home_setting" />
 
     <ImageView
@@ -64,10 +63,11 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/Graph_right_0"
+        android:id="@+id/graphRight"
         android:src="@drawable/graph_right_0"
         android:layout_below="@+id/textView153"
-        android:layout_alignStart="@+id/home_stock" />
+        android:layout_alignStart="@+id/home_stock"
+        android:layout_marginStart="13dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -121,8 +121,9 @@
         android:src="@mipmap/ic_launcher"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/home_setting"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:alpha="0"
+        android:layout_alignTop="@+id/fragment" />
 
 
     <ScrollView
@@ -138,7 +139,7 @@
             android:layout_height="64dp"
             android:orientation="vertical"
             android:layout_alignParentBottom="true"
-            android:layout_alignEnd="@+id/Graph_right_0"
+            android:layout_alignEnd="@+id/graphRight"
             android:background="#ffff99">
         <TextView
             android:layout_width="wrap_content"
@@ -299,38 +300,57 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView300"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true" />
+        android:text="備蓄品"
+        android:id="@+id/textView21"
+        android:textSize="12dp"
+        android:layout_below="@+id/graphRight"
+        android:layout_alignStart="@+id/graphRight" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView301"
-        android:layout_below="@+id/textView300"
-        android:layout_alignParentStart="true" />
+        android:text="％"
+        android:textSize="12dp"
+        android:id="@+id/textView22"
+        android:layout_alignBottom="@+id/textView21"
+        android:layout_alignEnd="@+id/scrollView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView302"
-        android:layout_below="@+id/textView301"
-        android:layout_alignParentStart="true" />
+        android:text="XXX"
+        android:textSize="12dp"
+        android:id="@+id/percent_stock"
+        android:layout_alignBottom="@+id/textView22"
+        android:layout_toStartOf="@+id/textView22" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView303"
-        android:layout_below="@+id/textView302"
-        android:layout_alignParentStart="true" />
+        android:text="最終更新日"
+        android:textSize="10dp"
+        android:id="@+id/textView27"
+        android:layout_below="@+id/textView21"
+        android:layout_alignStart="@+id/textView21" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXXX年XX月XX日"
+        android:textSize="10dp"
+        android:id="@+id/last_stock"
+        android:layout_below="@+id/textView22"
+        android:layout_alignParentEnd="true" />
+
+    <fragment
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:name="jp.co.nichiwa_system.okadayosuke.myapplication.ad"
+        android:id="@+id/fragment"
+        class="jp.co.nichiwa_system.okadayosuke.myapplication.ad"
+        tools:layout="@layout/fragment_ad"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
