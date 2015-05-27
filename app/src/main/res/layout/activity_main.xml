@@ -137,6 +137,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="64dp"
+            android:id="@+id/warning"
             android:orientation="vertical"
             android:layout_alignParentBottom="true"
             android:layout_alignEnd="@+id/graphRight"
